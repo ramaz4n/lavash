@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/lavash/static/css/main.1dad8222.css",
+    "main.js": "/lavash/static/js/main.55e0f9ac.js",
+    "static/media/ogurec.png": "/lavash/static/media/ogurec.caf54ed9cf5ce61da4ec.png",
+    "static/media/salat.png": "/lavash/static/media/salat.426c05418dc9ba2d5c89.png",
+    "static/media/modal-burger.png": "/lavash/static/media/modal-burger.b087c5a01550389a7b89.png",
+    "static/media/chesse.png": "/lavash/static/media/chesse.48bbc43ca57a8a7b591a.png",
+    "static/media/burger.png": "/lavash/static/media/burger.7138336a0bf9fb999ce0.png",
+    "static/media/pomidor.png": "/lavash/static/media/pomidor.2cd9d676beb5cfb77c1f.png",
+    "static/media/potatos.png": "/lavash/static/media/potatos.8c525258d5dc2e0929e6.png",
+    "static/media/phone.svg": "/lavash/static/media/phone.259432eb6830d215c7f88fcc89bf0213.svg",
+    "static/media/bl-phone.svg": "/lavash/static/media/bl-phone.e1874c65427ddbb90afb19302e56d484.svg",
+    "static/media/icon2.svg": "/lavash/static/media/icon2.408b0f509159aeec37e4113f295b605f.svg",
+    "static/media/home.svg": "/lavash/static/media/home.945a5d8f26dd7e84de9835704043b85d.svg",
+    "static/media/icon1.svg": "/lavash/static/media/icon1.a440afc0470ffe2804801c1578bf8808.svg",
+    "static/media/vk.svg": "/lavash/static/media/vk.bc8df80f5ef136b24ac6a20de64377c4.svg",
+    "index.html": "/lavash/index.html",
+    "main.1dad8222.css.map": "/lavash/static/css/main.1dad8222.css.map",
+    "main.55e0f9ac.js.map": "/lavash/static/js/main.55e0f9ac.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1dad8222.css",
+    "static/js/main.55e0f9ac.js"
+  ]
+}
