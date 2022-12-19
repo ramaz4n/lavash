@@ -1,0 +1,14 @@
+.logo{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-left: -15px;
+	&__text{
+		text-transform: uppercase;
+		margin-left: 2px;
+		color: white;
+		font-size: 32px;
+		font-weight: 600;
+	}
+}
+

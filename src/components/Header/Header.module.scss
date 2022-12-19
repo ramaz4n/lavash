@@ -1,0 +1,79 @@
+	.header{
+		width: 100%;
+		height: 100px;
+		background-color: #A20B02;
+		color: #fff;
+		&__wrapper{
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+		}
+		&__sity{
+			margin-top: 5px;
+			margin-left: 20px;
+			font-size: 18px;
+			font-weight: 400;
+		}
+		&__logoWrap{
+			display: flex;
+			align-items: center;
+		}
+		&__select{
+			background-color: #A20B02;
+			border: none;
+			outline: none;
+			color: #fff;
+			font-size: 18px;
+			cursor: pointer;
+		}
+
+		&__nav{
+			font-size: 18px;
+			display: flex;
+			align-items: center;
+			column-gap: 23px;
+			//margin-left: 347px;
+		}
+		&__nav a{
+			color: #fff;
+			padding: 5px 0;
+			transition: all 0.2s;
+		}
+		&__nav a:hover{
+			color: rgb(214, 206, 206);
+		}
+
+
+		&__navIcon{
+			display: flex;
+			column-gap: 20px;
+			margin-left: 30px;
+		}
+		&__navIcon img{
+			cursor: pointer;
+		}
+
+		&__busket{
+			position: relative;
+		}
+		&__busCount{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 15px;
+			height: 15px;
+			border-radius: 50%;
+			background-color: #fff;
+			color: #000;
+			position: absolute;
+			right: -6px;
+			top: -5px;
+			font-size: 12px;
+			font-weight: 600;
+		}
+
+		&__delivery,
+		&__phone{
+			font-weight: 600;
+		}
+	}
