@@ -7,6 +7,9 @@ import Main from './pages/Main/Main';
 import Contacts from './pages/Contacts/Contacts';
 import Basket from './pages/Basket/Basket';
 import Delivery from './pages/Delivery/Delivery';
+import Auth from './pages/Auth/Auth';
+import Registration from './pages/Registration/Registration';
+import Account from './pages/Account/Account';
 
 
 function App() {
@@ -21,6 +24,9 @@ function App() {
 				<Route path="delivery" element={<Delivery/>} />	
 				<Route path="contacts" element={<Contacts/>} />	
 				<Route path="basket" element={<Basket/>} />
+				<Route path="auth" element={<Auth/>} />
+				<Route path="registration" element={<Registration/>} />
+				<Route path="account" element={<Account/>} />
     		</Routes>
 
 		</Container>
