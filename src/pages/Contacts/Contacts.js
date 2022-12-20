@@ -3,8 +3,11 @@ import styles from './Contacts.module.scss'
 
 function Contacts(props) {
 	return (
-		<div>
-			
+		<div className={styles.contacts}>
+			<div className={styles.contacts__title}>
+				<div></div>
+				<h3>Контакты</h3>
+			</div>
 		</div>
 	);
 }

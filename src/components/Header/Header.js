@@ -30,7 +30,7 @@ function Header(props) {
 					</div>
 
 					<nav className={styles.header__nav}>
-						<a href="#">О доставке</a>
+						<Link to="/delivery">О доставке</Link>
 						<Link to="/contacts">Контакты</Link>
 						<a className={styles.header__delivery} href="#">Доставка 24/7</a>
 						<a className={styles.header__phone} href="tel:906906" type="phone"> 906-906</a>

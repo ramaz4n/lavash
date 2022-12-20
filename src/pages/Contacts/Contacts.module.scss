@@ -1,0 +1,23 @@
+.contacts{
+	max-width: 1047px;
+	margin: 0 auto;
+	padding: 80px 0;
+	&__title{
+		display: flex;
+		align-items: center;
+		div{
+			width: 21px;
+			height: 21px;
+			border-radius: 50%;
+			background-color: #A20B02;
+		}
+		h3{
+			font-family: 'Montserrat';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 25px;
+			line-height: 30px;
+			margin-left: 13px;
+		}
+	}
+}

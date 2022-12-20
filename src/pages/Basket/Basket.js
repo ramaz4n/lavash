@@ -83,7 +83,7 @@ function Basket(props) {
 						<h3>Контактная информация</h3>
 					</div>
 					<div className={styles.basket__itemBody}>
-						<div>
+						<div className={styles.phoneWrap}>
 							<img src={blPhone} alt="icon" />
 							<input 
 								className={styles.inputPhone} 

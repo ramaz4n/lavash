@@ -6,6 +6,7 @@ import { Routes, Route } from "react-router-dom";
 import Main from './pages/Main/Main';
 import Contacts from './pages/Contacts/Contacts';
 import Basket from './pages/Basket/Basket';
+import Delivery from './pages/Delivery/Delivery';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Container>
          <Routes>
 				<Route path="/" element={<Main/>} />
+				<Route path="delivery" element={<Delivery/>} />	
 				<Route path="contacts" element={<Contacts/>} />	
 				<Route path="basket" element={<Basket/>} />
     		</Routes>
