@@ -10,28 +10,37 @@ import Delivery from './pages/Delivery/Delivery';
 import Auth from './pages/Auth/Auth';
 import Registration from './pages/Registration/Registration';
 import Account from './pages/Account/Account';
+import {Context} from './Context'
 
 
 function App() {
 
 
   return (
-    <div className={styles.App}>
-      <Header/>
-      <Container>
-         <Routes>
-				<Route path="/" element={<Main/>} />
-				<Route path="delivery" element={<Delivery/>} />	
-				<Route path="contacts" element={<Contacts/>} />	
-				<Route path="basket" element={<Basket/>} />
-				<Route path="auth" element={<Auth/>} />
-				<Route path="registration" element={<Registration/>} />
-				<Route path="account" element={<Account/>} />
-    		</Routes>
+	<Context.Provider value={
+		{
 
-		</Container>
-      <Footer/>
-    </div>
+		}
+	}
+	
+	>
+		<div className={styles.App}>
+			<Header/>
+			<Container>
+				<Routes>
+					<Route path="/" element={<Main/>} />
+					<Route path="delivery" element={<Delivery/>} />	
+					<Route path="contacts" element={<Contacts/>} />	
+					<Route path="basket" element={<Basket/>} />
+					<Route path="auth" element={<Auth/>} />
+					<Route path="registration" element={<Registration/>} />
+					<Route path="account" element={<Account/>} />
+				</Routes>
+
+			</Container>
+			<Footer/>
+		</div>
+	</Context.Provider>
   );
 }
 
