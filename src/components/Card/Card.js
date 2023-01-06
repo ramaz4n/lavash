@@ -8,8 +8,8 @@ function Card(props) {
 
 
 	const modalHandler = (e) =>{
-		setModal(!modal)
 		e.stopPropagation()
+		setModal(!modal)
 	}
 
 	const countUpHandler = () =>{
@@ -24,21 +24,33 @@ function Card(props) {
 	return (
 		<div className={styles.card}>
 			<img className={styles.card__img} src={props.img} alt="img" />
-			<h3 className={styles.card__title}>{props.title}</h3>
-			<p className={styles.card__text}>{props.text}</p>
-			<div className={styles.card__group}>
-				<span className={styles.card__price}>{props.price}P</span>
-				<div className={styles.card__count}>
-					<span onClick={countDownHandler} className={styles.card__countDown}>-</span>
-					<span>{count}</span>
-					<span onClick={countUpHandler} className={styles.card__countUp}>+</span>
+			<div>
+				<h3 className={styles.card__title}>{props.title}</h3>
+				<p className={styles.card__text}>{props.text}</p>
+
+				<div  className={styles.contentGroup}>
+					<div className={styles.card__group}>
+						<span className={styles.card__price}>{props.price}P</span>
+						<div className={styles.card__count}>
+							<span onClick={countDownHandler} className={styles.card__countDown}>-</span>
+							<span>{count}</span>
+							<span onClick={countUpHandler} className={styles.card__countUp}>+</span>
+						</div>
+					</div>
+					<button onClick={modalHandler} className={styles.card__btn}>Заказать</button>
 				</div>
+
 			</div>
-			<button onClick={modalHandler} className={styles.card__btn}>Заказать</button>
 
 
-			<div onClick={modalHandler} className={modal? styles.modalBack : styles.closeModal}>
+			<div 
+				onClick={modalHandler}
+ 				className={modal? styles.modalBack : styles.closeModal}
+			>
 				<div className={styles.cardModal}>
+					<div className={styles.cardModal__closeWrap}>
+						<div onClick={modalHandler} className={styles.cardModal__close}></div>
+					</div>
 					<div className={styles.cardModal__about}>
 						<img src={props.imgModal} alt="img" />
 						<div className={styles.cardModal__aboutDesc}>
@@ -57,9 +69,13 @@ function Card(props) {
 
 
 					<div className={styles.info}>
-						<div className={styles.info__titleWrap}>
-							<h3 className={styles.info__title}>{props.title}</h3>
-							<span className={styles.card__price}>{props.price}P</span>
+						<div className={styles.infoMobTitle}>
+							<img src={props.imgModal} alt="img" />
+							<div className={styles.info__titleWrap}>
+								<h3 className={styles.info__title}>{props.title}</h3>
+								<span className={styles.info__weight}>{props.weight}</span> 
+								<span className={styles.card__price}>{props.price}P</span>
+							</div>
 						</div>
 						<div className={styles.info__sauceWrap}>
 							<div className={styles.info__sauce}>
@@ -117,16 +133,29 @@ function Card(props) {
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
 								/>
-								<MoreItem
+								{/*<MoreItem
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
 								/>
 								<MoreItem
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
-								/>
+								/>*/}
 							</div>
 						</div>
+						<div className={styles.aboutDescMob}>
+							<div>
+								<h6>Описание</h6>
+							</div>
+							<p>{props.text}</p>
+						</div>
+						<div className={styles.aboutStructMob}>
+							<h6>Состав</h6>
+							<p>
+								{props.structure}
+							</p>
+						</div>
+						<div className={styles.line}></div>
 						<div className={styles.info__result}>
 							<span className={styles.card__price}>{props.price}P</span>
 							<div className={styles.card__count}>

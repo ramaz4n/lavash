@@ -4,8 +4,9 @@
 	font-size: 18px;
 	font-weight: 400;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
-	column-gap: 20px;
+	gap: 20px;
 	&__item{
 		padding: 4px;
 		border-bottom: 2px solid transparent;
@@ -21,9 +22,11 @@
 
 .menuWrapper{
 	max-width: 1235px;
-	margin: 71px auto 250px auto;
+	margin: 71px auto 200px auto;
 	display: flex;
+	flex-wrap: wrap;
 	justify-content: space-between;
+	column-gap: 20px;
 	row-gap: 71px;
 }
 .pomidor{
@@ -37,4 +40,24 @@
 	right: 0;
 	top: 373px;
 	z-index: -5;
+}
+
+
+
+
+@media(max-width: 1200px){
+	.menuWrapper{
+		max-width: 900px;
+		row-gap: 40px;
+	}
+	.pomidor{
+		top: 380px;
+	}
+}
+
+@media(max-width: 710px){
+	.menuWrapper{
+		justify-content: center;
+		margin: 71px auto 150px auto;
+	}
 }
