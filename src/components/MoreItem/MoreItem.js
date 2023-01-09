@@ -17,6 +17,7 @@ function MoreItem(props) {
 
 	return (
 		<div className={styles.moreItem}>
+			<div  className={styles.addPrice}>+{props.addPrice}&#8381;</div>
 			<img src={props.moreImg} alt="img" />
 			<span>{props.moreTitle}</span>
 			<div>

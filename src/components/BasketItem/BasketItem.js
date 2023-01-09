@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
-import MoreItem from '../MoreItem/MoreItem';
-import styles from './Card.module.scss'
+import React, {useState}from 'react';
+import styles from './BasketItem.module.scss'
+import editImg from '../../images/edit.svg'
+import MoreItem from './../MoreItem/MoreItem';
 
-function Card(props) {
+function BasketItem(props) {
 	const [count, setCount] = useState(0);
 	const [modal, setModal] = useState(false);
 
@@ -22,25 +23,21 @@ function Card(props) {
 	}
 
 	return (
-		<div className={styles.card}>
-			<img className={styles.card__img} src={props.img} alt="img" />
-			<div>
-				<h3 className={styles.card__title}>{props.title}</h3>
-				<p className={styles.card__text}>{props.text}</p>
-
-				<div  className={styles.contentGroup}>
-					<div className={styles.card__group}>
-						<span className={styles.card__price}>{props.price}P</span>
-						<div className={styles.card__count}>
-							<span onClick={countDownHandler} className={styles.card__countDown}>-</span>
-							<span>{count}</span>
-							<span onClick={countUpHandler} className={styles.card__countUp}>+</span>
-						</div>
+		<div className={styles.basketItem}>
+			<img className={styles.burgerImg} src={props.img} alt="img" />
+			<div className={styles.basketItem__info}>
+				<span className={styles.basketItem__title}>{props.title}</span>
+				<div className={styles.basketItem__infoDetails}>
+					<div className={styles.count}>
+						<span onClick={countDownHandler} className={styles.countDown}>-</span>
+						<span>{count}</span>
+						<span onClick={countUpHandler} className={styles.countUp}>+</span>
 					</div>
-					<button onClick={modalHandler} className={styles.card__btn}>Заказать</button>
+					<img onClick={modalHandler} className={styles.editBtn} src={editImg} alt="" />
 				</div>
-
 			</div>
+			<span  className={styles.basketItem__price}>{props.price}&#8381;</span>
+
 
 
 			<div 
@@ -74,8 +71,8 @@ function Card(props) {
 							<div className={styles.info__titleWrap}>
 								<h3 className={styles.info__title}>{props.title}</h3>
 								<span className={styles.info__weight}>{props.weight}</span> 
-								<span className={styles.card__price}>{props.price}&#8381;</span>
 							</div>
+								<span className={styles.card__price}>{props.price}&#8381;</span>
 						</div>
 						<div className={styles.info__sauceWrap}>
 							<div className={styles.info__sauce}>
@@ -172,4 +169,4 @@ function Card(props) {
 	);
 }
 
-export default Card;
+export default BasketItem;

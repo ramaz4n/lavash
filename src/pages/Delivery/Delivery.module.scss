@@ -163,6 +163,9 @@
 }
 
 @media(max-width: 850px){
+	.minPomidor{
+		display: none;
+	}
 	.delivery{
 		padding: 60px 0 40px;
 		&__order{

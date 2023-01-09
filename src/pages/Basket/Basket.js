@@ -5,6 +5,8 @@ import blPhone from '../../images/bl-phone.svg'
 import chesse from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
+import burgerImg from '../../images/burger.png'
+import BasketItem from '../../components/BasketItem/BasketItem';
 
 
 function Basket(props) {
@@ -28,7 +30,21 @@ function Basket(props) {
 						<h3>Ваш заказ</h3>
 					</div>
 					<div className={styles.basket__itemBody}>
-
+							<BasketItem
+								img={burgerImg}
+								title={"Бургер Мексика"}
+								price={219}
+							/>
+							<BasketItem
+								img={burgerImg}
+								title={"Бургер Мексика"}
+								price={219}
+							/>
+							<BasketItem
+								img={burgerImg}
+								title={"Бургер Мексика"}
+								price={219}
+							/>
 					</div>
 				</div> 
 
