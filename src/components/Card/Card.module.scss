@@ -87,17 +87,15 @@
 
 .modalBack{
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
+	top: 0;
+	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0,0,0,0.5);
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	//display: flex;
+	//justify-content: center;
+	//align-items: center;
 	overflow-y: scroll;
-	padding: 100px 0;
 }
 
 .closeModal {
@@ -105,7 +103,10 @@
 }
 
 .cardModal{
-	margin-top: 250px;
+	position: absolute;
+	top: 40px;
+	left: 50%;
+	transform: translateX(-50%);
 	width: 1080px;
 	min-height: 857px;
 	background-color: #fff;
@@ -224,6 +225,7 @@
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		column-gap: 10px;
 		padding-right: 50px;
 	}
 	&__title{
@@ -273,6 +275,7 @@
 			flex-direction: column;
 			row-gap: 17px;
 		}
+
 	}
 
 
@@ -396,7 +399,9 @@
 	vertical-align: bottom;
 }
 
-
+.info__weight{
+	display: none;
+}
 
 
 .aboutDescMob{
@@ -693,7 +698,7 @@
 @media(max-width: 750px){
 	.cardModal{
 		width: 100%;
-		min-height: 100%;
+		top: 0;
 		background-color: #fff;
 		border-radius: 0;
 		display: flex;
@@ -727,6 +732,7 @@
 		flex-wrap: wrap;
 	}
 	.info__weight{
+		display: inline;
 		font-weight: 600;
 		font-size: 11.6873px;
 		line-height: 14px;
@@ -906,8 +912,8 @@
 			width: 350px;
 		}
 		&__title{
-			font-size: 18px;
-			line-height: 22px;
+			font-size: 13.9752px;
+			line-height: 17px;
 		}
 	
 		&__sauceWrap{
@@ -1035,3 +1041,8 @@
 
 }
 
+@media(max-width: 394px){
+	.card__price{
+		width: 100%;
+	}
+}
