@@ -14,6 +14,7 @@ function Basket(props) {
 		setConChecked(!conChecked)
 	}
 
+
 	return (
 		<div className={styles.basket}>
 			<img className={styles.chesse} src={chesse} alt="img" />
@@ -38,7 +39,7 @@ function Basket(props) {
 					</div>
 					<div className={styles.basket__itemBody}>
 						<div className={styles.basket__itemBodyElem}>
-							<img src={home} alt="icon" />
+							<img className={styles.homeIcon} src={home} alt="icon" />
 							<input 
 								className={styles.inputHome} 
 								type="text" 
@@ -84,7 +85,7 @@ function Basket(props) {
 					</div>
 					<div className={styles.basket__itemBody}>
 						<div className={styles.phoneWrap}>
-							<img src={blPhone} alt="icon" />
+							<img className={styles.phoneIcon} src={blPhone} alt="icon" />
 							<input 
 								className={styles.inputPhone} 
 								placeholder='Номер телефона'
@@ -119,10 +120,10 @@ function Basket(props) {
 
 			</div>
 			<div className={styles.basket__total}> 
-				<div>
+				<div className={styles.totalOff}>
 					<span>Товар на сумму:</span><span>219&#8381;</span>
 				</div>
-				<div>
+				<div className={styles.totalOff}>
 					<span>Доставка:</span><span>50&#8381;</span>
 				</div>
 				<div>

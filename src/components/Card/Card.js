@@ -133,14 +133,14 @@ function Card(props) {
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
 								/>
-								{/*<MoreItem
+								<MoreItem
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
 								/>
 								<MoreItem
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
-								/>*/}
+								/>
 							</div>
 						</div>
 						<div className={styles.aboutDescMob}>
