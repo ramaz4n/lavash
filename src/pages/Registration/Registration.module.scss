@@ -104,7 +104,7 @@
 	position: absolute;
 	width: 340px;
 	height: 368px;
-	right: -30px;
+	right: 0;
 	top: 439px;
 	z-index: -5;
 }
@@ -112,7 +112,7 @@
 	position: absolute;
 	width: 235px;
 	height: 190px;
-	right: -100px;
+	right: 0;
 	top: 395px;
 	z-index: -3;
 }
@@ -123,4 +123,38 @@
 	left: 0;
 	top: 610px;
 	z-index: -3;
+}
+
+
+@media(max-width: 480px){
+	.auth{
+		width: 100%;
+		height: 403px;
+		padding: 30px 23px;
+		&__title{
+			font-size: 18px;
+			line-height: 20px;
+		}
+		&__revEmail{
+			width: 100%;
+			height: 40px;
+		}
+		&__revPass{
+			width: 100%;
+			height: 40px;
+		}
+		&__revPass2{
+			width: 100%;
+			height: 40px;
+		}
+		&__btnEnter{
+			height: 35px;
+		}
+		&__btnReg{
+			height: 35px;
+		}
+	}
+	.chese{
+		display: none;
+	}
 }

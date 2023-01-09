@@ -74,8 +74,8 @@ function Card(props) {
 							<div className={styles.info__titleWrap}>
 								<h3 className={styles.info__title}>{props.title}</h3>
 								<span className={styles.info__weight}>{props.weight}</span> 
-								<span className={styles.card__price}>{props.price}P</span>
 							</div>
+								<span className={styles.card__price}>{props.price}P</span>
 						</div>
 						<div className={styles.info__sauceWrap}>
 							<div className={styles.info__sauce}>

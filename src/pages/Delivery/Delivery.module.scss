@@ -149,3 +149,40 @@
 	top: 493px;
 	z-index: -3;
 }
+
+
+
+
+
+
+
+@media(max-width:1150px){
+	.maps{
+		width: 100%;
+	}
+}
+
+@media(max-width: 850px){
+	.delivery{
+		padding: 60px 0 40px;
+		&__order{
+			padding: 27px 35px;
+		}
+		&__orderZona{
+			padding: 27px 35px;
+		}
+	}
+}
+
+
+@media(max-width: 550px){
+	.delivery{
+		padding: 50px 0 30px;
+		&__order{
+			padding: 27px 25px;
+		}
+		&__orderZona{
+			padding: 27px 25px;
+		}
+	}
+}

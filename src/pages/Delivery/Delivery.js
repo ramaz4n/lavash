@@ -4,6 +4,7 @@ import maps from '../../images/maps.png'
 import minPomidor from '../../images/min-pomidor.png'
 import salat from '../../images/salat.png'
 
+
 function Delivery(props) {
 	return (
 		<div className={styles.delivery}>

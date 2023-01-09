@@ -17,7 +17,7 @@ function Account(props) {
 			<div className={styles.account__main}>
 				<div className={styles.account__item}>
 					<div className={styles.account__itemTitleWrap}>
-						<img src={user} alt="icon" />
+						<img className={styles.userIcon} src={user} alt="icon" />
 						<h2 className={styles.account_itemTitle}>Личный кабинет</h2>
 					</div>
 					<div className={styles.account__itemBody}>
@@ -28,7 +28,7 @@ function Account(props) {
 
 				<div className={styles.account__item}>
 					<div className={styles.account__itemTitleWrap}>
-						<img src={home} alt="icon" />
+						<img className={styles.homeIcon} src={home} alt="icon" />
 						<h2 className={styles.account_itemTitle}>Адрес доставки</h2>
 					</div>
 					<div className={styles.account__itemBody}>
@@ -63,7 +63,7 @@ function Account(props) {
 						</div>
 						<div className={styles.account__itemBodyElem}>
 							<input 
-								className={styles.inputKom} 
+								className={styles.inputKoment} 
 								type="text" 
 								placeholder='Комментарий к заказу'
 							/>
@@ -73,7 +73,7 @@ function Account(props) {
 
 				<div className={styles.account__item}>
 					<div className={styles.account__itemTitleWrap}>
-						<img src={blPhone} alt="icon" />
+						<img className={styles.phoneIcon} src={blPhone} alt="icon" />
 						<h2 className={styles.account_itemTitle}>Контактная информация</h2>
 					</div>
 					<div className={styles.account__itemBody}>

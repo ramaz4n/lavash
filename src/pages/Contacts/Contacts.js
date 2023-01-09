@@ -6,6 +6,7 @@ import chese from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
 
+
 function Contacts(props) {
 	return (
 		<div className={styles.contacts}>
