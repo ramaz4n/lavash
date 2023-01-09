@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lavash/static/css/main.7f35c6ba.css",
-    "main.js": "/lavash/static/js/main.c7af8912.js",
+    "main.css": "/lavash/static/css/main.8c583b09.css",
+    "main.js": "/lavash/static/js/main.a7c4e25a.js",
     "static/media/maps.png": "/lavash/static/media/maps.8bd8150cd3a3574b7711.png",
     "static/media/ogurec.png": "/lavash/static/media/ogurec.caf54ed9cf5ce61da4ec.png",
     "static/media/salat.png": "/lavash/static/media/salat.426c05418dc9ba2d5c89.png",
@@ -20,12 +20,13 @@
     "static/media/home.svg": "/lavash/static/media/home.945a5d8f26dd7e84de9835704043b85d.svg",
     "static/media/icon1.svg": "/lavash/static/media/icon1.a440afc0470ffe2804801c1578bf8808.svg",
     "static/media/vk.svg": "/lavash/static/media/vk.bc8df80f5ef136b24ac6a20de64377c4.svg",
+    "static/media/edit.svg": "/lavash/static/media/edit.6c6d9e984a267cbbb50cf586ff233cc0.svg",
     "index.html": "/lavash/index.html",
-    "main.7f35c6ba.css.map": "/lavash/static/css/main.7f35c6ba.css.map",
-    "main.c7af8912.js.map": "/lavash/static/js/main.c7af8912.js.map"
+    "main.8c583b09.css.map": "/lavash/static/css/main.8c583b09.css.map",
+    "main.a7c4e25a.js.map": "/lavash/static/js/main.a7c4e25a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7f35c6ba.css",
-    "static/js/main.c7af8912.js"
+    "static/css/main.8c583b09.css",
+    "static/js/main.a7c4e25a.js"
   ]
 }
