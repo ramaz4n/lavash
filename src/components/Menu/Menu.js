@@ -17,7 +17,7 @@ function Menu(props) {
 	const setCategories = (e) =>{
 
 		async function getCategories (){
-			await fetch(`http://lavash.endlessmind.space/api/products?category=${e.target.id}`, requestOptions)
+			await fetch(`https://lavash.endlessmind.space/api/products?category=${e.target.id}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
 				setProducts(result)
@@ -30,7 +30,7 @@ function Menu(props) {
 
 
 	async function getMenuItems (){
-		await fetch("http://lavash.endlessmind.space/api/categories", requestOptions)
+		await fetch("https://lavash.endlessmind.space/api/categories", requestOptions)
 		.then(response => response.json())
 		.then(result => {
 			setMenuItems(result)

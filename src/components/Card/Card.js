@@ -5,6 +5,7 @@ import styles from './Card.module.scss'
 function Card(props) {
 	const [count, setCount] = useState(0);
 	const [modal, setModal] = useState(false);
+	const [product, setProduct] = useState();
 
 	const requestOptions = {
 		method: 'GET',
@@ -13,7 +14,7 @@ function Card(props) {
 
 	 
 	 async function getProduct (){
-		 await fetch(`http://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
+		 await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
 		 .then(response => response.json())
 		 .then(result => {
 			 console.log(result)

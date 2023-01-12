@@ -23,7 +23,7 @@ function App() {
 		redirect: 'follow'
 	 };
 	async function getProducts (){
-		await fetch("http://lavash.endlessmind.space/api/products", requestOptions)
+		await fetch("https://lavash.endlessmind.space/api/products", requestOptions)
 		.then(response => response.json())
 		.then(result => {
 			console.log(result)
