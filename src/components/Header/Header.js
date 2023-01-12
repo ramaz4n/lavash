@@ -34,8 +34,8 @@ function Header(props) {
 						<nav className={styles.burgerMenu__wrap}>
 							<span className={styles.burgerMenu__delivery} >Доставка 24/7</span>
 							<a className={styles.burgerMenu__phone} href="tel:906906" type="phone"> 906-906</a>
-							<Link to="/delivery" className={styles.burgerMenu__some} >О доставке</Link>
-							<Link to="/contacts" className={styles.burgerMenu__some} >Контакты</Link>
+							<Link to="/delivery" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >О доставке</Link>
+							<Link to="/contacts" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >Контакты</Link>
 							<div className={styles.burgerMenu__sity}>
 								<span>Выбрать город: </span>
 								<select className={styles.burgerMenu__select}>

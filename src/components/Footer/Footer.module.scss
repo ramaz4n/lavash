@@ -85,6 +85,12 @@
 		display: none;
 	}
 	.footer__docs{
+		margin-top: 34px;
+	}
+}
+
+@media(max-width: 387px){
+	.footer__docs{
 		margin-top: 20px;
 	}
 }

@@ -11,15 +11,37 @@ import Auth from './pages/Auth/Auth';
 import Registration from './pages/Registration/Registration';
 import Account from './pages/Account/Account';
 import {Context} from './Context'
+import { useEffect, useState } from 'react';
 
 
 function App() {
 
+	const [products, setProducts] = useState([])
+
+	const requestOptions = {
+		method: 'GET',
+		redirect: 'follow'
+	 };
+	async function getProducts (){
+		await fetch("http://lavash.endlessmind.space/api/products", requestOptions)
+		.then(response => response.json())
+		.then(result => {
+			console.log(result)
+			setProducts(result)
+		})
+		.catch(error => console.log('error', error));
+	}
+
+	useEffect(() => {
+		getProducts()
+		
+	}, []);
 
   return (
 	<Context.Provider value={
 		{
-
+			products,
+			setProducts
 		}
 	}
 	

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import styles from './Main.module.scss'
 import Card from '../../components/Card/Card';
 import burger from '../../images/burger.png'
@@ -6,92 +6,39 @@ import modalBurger from '../../images/modal-burger.png'
 import pomidor from '../../images/pomidor.png'
 import ogurec from '../../images/ogurec.png'
 import potatos from '../../images/potatos.png'
+import Menu from '../../components/Menu/Menu';
+import { Context } from '../../Context';
 
 function Main(props) {
+	const {products} = useContext(Context)
+
 	return (
 		<div>
 			<img className={styles.pomidor} src={pomidor} alt="img" />
       	<img className={styles.ogurec} src={ogurec} alt="img" />
 
-			<ul className={styles.menu}>
-         	<li className={styles.menu__item}>
-            	<a href="#">Комбо</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Шаурма</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Бургеры</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Первые блюда</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Вторые блюда</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Салаты</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Снеки</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Выпечка</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Десерты</a>
-          	</li>
-          	<li className={styles.menu__item}>
-            	<a href="#">Напитки</a>
-          	</li>
-        	</ul>
+			<Menu/>
 
       	<div className={styles.menuWrapper}>
 
-          	<Card 
-            	img={burger} 
-            	imgModal={modalBurger}
-            	moreImg={potatos}
-            	title={"Бургер Мексика"} 
-            	moreTitle={"Картофель фри"}
-            	text={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-            	price={219}
-            	weight="330г"
-            	structure={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-          	/>
-          	<Card 
-            	img={burger} 
-            	imgModal={modalBurger}
-            	moreImg={potatos}
-            	title={"Бургер Мексика"} 
-            	moreTitle={"Картофель фри"}
-            	text={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-            	price={219}
-            	weight="330г"
-            	structure={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-          	/>
-          	<Card 
-            	img={burger} 
-            	imgModal={modalBurger}
-            	moreImg={potatos}
-            	title={"Бургер Мексика"} 
-            	moreTitle={"Картофель фри"}
-            	text={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-            	price={219}
-            	weight="330г"
-            	structure={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-          	/>
-				<Card 
-            	img={burger} 
-            	imgModal={modalBurger}
-            	moreImg={potatos}
-            	title={"Бургер Мексика"} 
-            	moreTitle={"Картофель фри"}
-            	text={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-            	price={219}
-            	weight="330г"
-            	structure={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
-          	/>
+				{
+					products.map(elem=>(
+						<Card 
+							id = {elem.id}
+							img={burger} 
+							//img={elem.photo_id} 
+							imgModal={modalBurger}
+							moreImg={potatos}
+							title={elem.name} 
+							moreTitle={"Картофель фри"}
+							text={elem.desc}
+							price={elem.price}
+							weight="330г"
+							structure={"Описание ложно сказать, почему непосредственные участники технического прогрессаизации"}
+						/>
+					))
+				}
+          	
         	</div>
 		</div>
 	);

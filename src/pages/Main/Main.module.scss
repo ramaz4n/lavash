@@ -22,11 +22,12 @@
 
 .menuWrapper{
 	max-width: 1235px;
+	min-height: 400px;
 	margin: 71px auto 200px auto;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
-	column-gap: 20px;
+	justify-content: center;
+	column-gap: 50px;
 	row-gap: 71px;
 }
 .pomidor{
@@ -57,6 +58,7 @@
 
 @media(max-width: 710px){
 	.menuWrapper{
+		min-height: 200px;
 		justify-content: center;
 		margin: 71px auto 150px auto;
 	}

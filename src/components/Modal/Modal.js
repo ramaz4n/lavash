@@ -1,52 +1,16 @@
-import React, {useState}from 'react';
-import styles from './BasketItem.module.scss'
-import editImg from '../../images/edit.svg'
+import React from 'react';
+import styles from './Modal.module.scss'
 import MoreItem from './../MoreItem/MoreItem';
 
-function BasketItem(props) {
-	const [count, setCount] = useState(0);
-	const [modal, setModal] = useState(false);
-
-
-	const modalHandler = (e) =>{
-		e.stopPropagation()
-		setModal(!modal)
-	}
-
-	const countUpHandler = () =>{
-		setCount(count + 1)
-	}
-	const countDownHandler = () =>{
-		if(count > 0){
-			setCount(count - 1);
-		}
-	}
-
+function Modal(props) {
 	return (
-		<div className={styles.basketItem}>
-			<img className={styles.burgerImg} src={props.img} alt="img" />
-			<div className={styles.basketItem__info}>
-				<span className={styles.basketItem__title}>{props.title}</span>
-				<div className={styles.basketItem__infoDetails}>
-					<div className={styles.count}>
-						<span onClick={countDownHandler} className={styles.countDown}>-</span>
-						<span>{count}</span>
-						<span onClick={countUpHandler} className={styles.countUp}>+</span>
-					</div>
-					<img onClick={modalHandler} className={styles.editBtn} src={editImg} alt="" />
-				</div>
-			</div>
-			<span  className={styles.basketItem__price}>{props.price}&#8381;</span>
-
-
-
-			<div 
-				onClick={modalHandler}
- 				className={modal? styles.modalBack : styles.closeModal}
+		<div 
+				onClick={props.onClick}
+ 				className={props.modal? styles.modalBack : styles.closeModal}
 			>
-				<div className={styles.cardModal}>
+				<div onClick={(e)=>{e.stopPropagation()}} className={styles.cardModal}>
 					<div className={styles.cardModal__closeWrap}>
-						<div onClick={modalHandler} className={styles.cardModal__close}></div>
+						<div onClick={props.onClick} className={styles.cardModal__close}></div>
 					</div>
 					<div className={styles.cardModal__about}>
 						<img src={props.imgModal} alt="img" />
@@ -71,7 +35,7 @@ function BasketItem(props) {
 							<div className={styles.info__titleWrap}>
 								<h3 className={styles.info__title}>{props.title}</h3>
 								<span className={styles.info__weight}>{props.weight}</span> 
-								<span className={styles.price}>{props.price}&#8381;</span>
+								<span className={styles.card__price}>{props.price}&#8381;</span>
 							</div>
 						</div>
 						<div className={styles.info__sauceWrap}>
@@ -131,7 +95,6 @@ function BasketItem(props) {
 									moreTitle={props.moreTitle}
 								/>
 								<MoreItem
-									addPrice="50"
 									moreImg={props.moreImg}
 									moreTitle={props.moreTitle}
 								/>
@@ -155,19 +118,18 @@ function BasketItem(props) {
 						</div>
 						<div className={styles.line}></div>
 						<div className={styles.info__result}>
-							<span className={styles.price}>{props.price}&#8381;</span>
-							<div className={styles.count}>
-								<span onClick={countDownHandler} className={styles.countDown}>-</span>
-								<span>{count}</span>
-								<span onClick={countUpHandler} className={styles.countUp}>+</span>
+							<span className={styles.card__price}>{props.price}&#8381;</span>
+							<div className={styles.card__count}>
+								<span onClick={props.countDownHandler} className={styles.card__countDown}>-</span>
+								<span>{props.count}</span>
+								<span onClick={props.countUpHandler} className={styles.card__countUp}>+</span>
 							</div>
 							<button className={styles.info__resultBtn}>Добавить в корзину</button>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 	);
 }
 
-export default BasketItem;
+export default Modal;

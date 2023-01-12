@@ -1,0 +1,20 @@
+.menu{
+	margin-top: 40px;
+	margin-left: 35px;
+	font-size: 18px;
+	font-weight: 400;
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 20px;
+	color: #000;
+	cursor: pointer;
+	&__item{
+		padding: 4px;
+		border-bottom: 2px solid transparent;
+		transition: all 0.2s;
+	}
+	&__item:hover{
+		border-bottom: 2px solid #A20B02;
+	}
+}
