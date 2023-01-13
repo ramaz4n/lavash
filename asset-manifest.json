@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/lavash/static/css/main.65204384.css",
-    "main.js": "/lavash/static/js/main.be75abf4.js",
+    "main.css": "/lavash/static/css/main.97cf6b04.css",
+    "main.js": "/lavash/static/js/main.3a6ddb69.js",
     "static/media/maps.png": "/lavash/static/media/maps.8bd8150cd3a3574b7711.png",
     "static/media/ogurec.png": "/lavash/static/media/ogurec.caf54ed9cf5ce61da4ec.png",
     "static/media/salat.png": "/lavash/static/media/salat.426c05418dc9ba2d5c89.png",
@@ -10,7 +10,6 @@
     "static/media/burger.png": "/lavash/static/media/burger.7138336a0bf9fb999ce0.png",
     "static/media/pomidor.png": "/lavash/static/media/pomidor.2cd9d676beb5cfb77c1f.png",
     "static/media/min-pomidor.png": "/lavash/static/media/min-pomidor.3e2e9489c46b58a03ef3.png",
-    "static/media/potatos.png": "/lavash/static/media/potatos.8c525258d5dc2e0929e6.png",
     "static/media/phone.svg": "/lavash/static/media/phone.259432eb6830d215c7f88fcc89bf0213.svg",
     "static/media/bl-phone.svg": "/lavash/static/media/bl-phone.e1874c65427ddbb90afb19302e56d484.svg",
     "static/media/instagram.svg": "/lavash/static/media/instagram.21271794744f412328c96d5870bc63f2.svg",
@@ -22,11 +21,11 @@
     "static/media/vk.svg": "/lavash/static/media/vk.bc8df80f5ef136b24ac6a20de64377c4.svg",
     "static/media/edit.svg": "/lavash/static/media/edit.6c6d9e984a267cbbb50cf586ff233cc0.svg",
     "index.html": "/lavash/index.html",
-    "main.65204384.css.map": "/lavash/static/css/main.65204384.css.map",
-    "main.be75abf4.js.map": "/lavash/static/js/main.be75abf4.js.map"
+    "main.97cf6b04.css.map": "/lavash/static/css/main.97cf6b04.css.map",
+    "main.3a6ddb69.js.map": "/lavash/static/js/main.3a6ddb69.js.map"
   },
   "entrypoints": [
-    "static/css/main.65204384.css",
-    "static/js/main.be75abf4.js"
+    "static/css/main.97cf6b04.css",
+    "static/js/main.3a6ddb69.js"
   ]
 }
