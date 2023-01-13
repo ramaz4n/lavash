@@ -33,6 +33,7 @@ function Modal(props) {
 			"img":	product.photo_id,
 			"count": props.count
 		}])
+		props.onClick()
 	}
 
 	useEffect((e) =>{
