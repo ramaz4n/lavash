@@ -1,20 +1,35 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import styles from './Basket.module.scss'
 import home from '../../images/home.svg'
 import blPhone from '../../images/bl-phone.svg'
 import chesse from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
-import burgerImg from '../../images/burger.png'
 import BasketItem from '../../components/BasketItem/BasketItem';
+import { Context } from '../../Context';
 
 
 function Basket(props) {
 	const [conChecked, setConChecked] = useState(false)
+	const [totalPrice, setTotalPrice] = useState(0)
+	const [basketPrice, setBasketPrice] = useState(0)
+	const [deliveryPrice, setDeliveryPrice] = useState(0)
+	const {basketProducts} = useContext(Context)
 
 	const changeCon = ()=>{
 		setConChecked(!conChecked)
 	}
+
+	const totalPriceHandler = ()=>{
+		basketProducts.map(e => {
+			setTotalPrice(totalPrice + e.price)
+		})
+	}
+
+	useEffect(()=>{
+		totalPriceHandler()
+	},[basketProducts])
+	
 
 
 	return (
@@ -23,28 +38,25 @@ function Basket(props) {
 			<img className={styles.pomidor} src={pomidor} alt="img" />
 			<img className={styles.salat} src={salat} alt="img" />
 			<div className={styles.basket__main}>
-				<p>Минимальная стоимость заказа от <span>300&#8381;</span></p>
+				<p className={styles.basket__title}>Минимальная стоимость заказа от <span>300&#8381;</span></p>
 				<div className={styles.basket__item}>
 					<div className={styles.basket__itemTitle}>
 						<div><span>1</span></div>
 						<h3>Ваш заказ</h3>
 					</div>
 					<div className={styles.basket__itemBody}>
-							<BasketItem
-								img={burgerImg}
-								title={"Бургер Мексика"}
-								price={219}
-							/>
-							<BasketItem
-								img={burgerImg}
-								title={"Бургер Мексика"}
-								price={219}
-							/>
-							<BasketItem
-								img={burgerImg}
-								title={"Бургер Мексика"}
-								price={219}
-							/>
+						{
+							basketProducts.map(e=>(
+								<BasketItem
+									id={e.id}
+									img={e.img}
+									title={e.name}
+									price={e.price}
+									count={e.count}
+								/>
+							))
+						}
+
 					</div>
 				</div> 
 
@@ -137,13 +149,13 @@ function Basket(props) {
 			</div>
 			<div className={styles.basket__total}> 
 				<div className={styles.totalOff}>
-					<span>Товар на сумму:</span><span>219&#8381;</span>
+					<span>Товар на сумму:</span><span>{totalPrice}&#8381;</span>
 				</div>
 				<div className={styles.totalOff}>
-					<span>Доставка:</span><span>50&#8381;</span>
+					<span>Доставка:</span><span>{deliveryPrice}&#8381;</span>
 				</div>
 				<div>
-					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>269&#8381;</span>
+					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{basketPrice}&#8381;</span>
 				</div>
 				
 				<button>Оплатить</button>

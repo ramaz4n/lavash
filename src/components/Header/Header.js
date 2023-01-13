@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Logo from '../Logo/Logo';
 import userIcon from '../../images/icon1.svg'
 import basketIcon from '../../images/icon2.svg'
@@ -6,11 +6,12 @@ import styles from './Header.module.scss'
 import Container from '../Container/Container';
 import { useState } from 'react';
 import {Link} from "react-router-dom";
+import { Context } from './../../Context';
 
 
 
 function Header(props) {
-	const [busket, setBusket] = useState(2);
+	const {basketProducts} = useContext(Context);
 	const [burgerMenu, setBurgerMenu] = useState(false)
 
 	const burgerMenuHandler = () =>{
@@ -71,7 +72,7 @@ function Header(props) {
 							<Link to="/basket">
 								<div className={styles.header__busket}>
 									<img className={styles.basketIcon} src={basketIcon} alt="busket" />
-									<span className={styles.header__busCount}>{busket}</span>
+									<span className={styles.header__busCount}>{basketProducts.length}</span>
 								</div>
 							</Link>
 						</div>

@@ -17,6 +17,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
 	const [products, setProducts] = useState([])
+	const [basketProducts, setBasketProducts] = useState([])
 
 	const requestOptions = {
 		method: 'GET',
@@ -26,7 +27,6 @@ function App() {
 		await fetch("https://lavash.endlessmind.space/api/products", requestOptions)
 		.then(response => response.json())
 		.then(result => {
-			console.log(result)
 			setProducts(result)
 		})
 		.catch(error => console.log('error', error));
@@ -34,14 +34,15 @@ function App() {
 
 	useEffect(() => {
 		getProducts()
-		
 	}, []);
 
   return (
 	<Context.Provider value={
 		{
 			products,
-			setProducts
+			setProducts,
+			basketProducts,
+			setBasketProducts
 		}
 	}
 	

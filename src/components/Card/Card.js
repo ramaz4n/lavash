@@ -1,37 +1,21 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from '../Modal/Modal';
 import styles from './Card.module.scss'
 
 function Card(props) {
 	const [count, setCount] = useState(0);
 	const [modal, setModal] = useState(false);
-	const [product, setProduct] = useState();
-
-	const requestOptions = {
-		method: 'GET',
-		redirect: 'follow'
-	 };
 
 	 
-	 async function getProduct (){
-		 await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
-		 .then(response => response.json())
-		 .then(result => {
-			 console.log(result)
-			 //setMenuItems(result)
-		 })
-		 .catch(error => console.log('error', error));
-	 }
 	 
-	 
-	 const modalHandler = () =>{
-		getProduct()
+	const modalHandler = () =>{
 		setModal(!modal)
+		setCount(1)
 	}
 	const closeModal = () =>{
 		setModal(!modal)
 	}
-
+		
 	const countUpHandler = () =>{
 		setCount(count + 1)
 	}
@@ -40,6 +24,7 @@ function Card(props) {
 			setCount(count - 1);
 		}
 	}
+		
 
 	return (
 		<div className={styles.card}>
@@ -62,14 +47,15 @@ function Card(props) {
 
 			</div>
 
-				<Modal
-					onClick={closeModal}
-					modal={modal}
-					count={count}
-					countUpHandler={countUpHandler}
-					countDownHandler={countDownHandler}
-					
-				/>
+					<Modal
+						id={props.id}
+						//product={product}
+						onClick={closeModal}
+						modal={modal}
+						count={count}
+						countUpHandler={countUpHandler}
+						countDownHandler={countDownHandler}
+					/>
 			
 		</div>
 	);
