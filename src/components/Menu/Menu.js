@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from 'react';
 import styles from './Menu.module.scss'
 import { Context } from '../../Context';
+import Slider from "react-slick";
 
 
 function Menu(props) {
@@ -42,9 +43,10 @@ function Menu(props) {
 		getMenuItems()
 	}, []);
 
+
+
 	return (
 			<ul className={styles.menu}>
-
 				{
 					menuItems.map(elem=>(
 						<li id={elem.id} onClick={setCategories} className={styles.menu__item}>
@@ -52,7 +54,6 @@ function Menu(props) {
 						</li>
 					))
 				}
-          	
         	</ul>
 	);
 }

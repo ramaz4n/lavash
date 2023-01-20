@@ -25,15 +25,22 @@ function Modal(props) {
 		.catch(error => console.log('error', error));
 	}
 
+
 	const addToBasket = (e) => {
 		setBasketProducts(prev => [...prev, {
-			"id":		props.id,
-			"name":	product.name,
-			"price":	totalPrice,
-			"img":	product.photo_id,
-			"count": props.count
-		}])
+				"id": Math.floor(Math.random() * 1000) + 1,
+				"productId":		props.id,
+				"name":	product.name,
+				"price":	totalPrice,
+				"img":	product.photo_id,
+				"count": props.count
+			}
+		])
 		props.onClick()
+	}
+
+	const totalPriceHandler = () => {
+		
 	}
 
 	useEffect((e) =>{
@@ -85,7 +92,12 @@ function Modal(props) {
 										<div>
 											{
 												e.values.map(elem=>(
-													<label price={elem.price} groupId={elem.group_id} id={elem.id} className={styles.info__radioWrap}>
+													<label 
+														price={elem.price} 
+														groupId={elem.group_id} 
+														id={elem.id} 
+														className={styles.info__radioWrap}
+													>
 														<input className={styles.radio__real} type="radio" name={e.name} />
 														<span className={styles.radio__fake}></span>
 														<span className={styles.radio__title}>{elem.name}</span>
@@ -105,7 +117,7 @@ function Modal(props) {
 									product.additions.map(e=>(
 										<MoreItem
 											id = {e.id}
-											addPrice={e.price}
+											price={e.price}
 											moreImg={e.photo_id}
 											moreTitle={e.name}
 										/>

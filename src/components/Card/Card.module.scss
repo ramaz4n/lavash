@@ -79,6 +79,7 @@
 	&__countDown,
 	&__countUp{
 		cursor: pointer;
+		padding: 3px;
 	}
 }
 
@@ -263,6 +264,10 @@
 		&__group{
 			column-gap: 12px;
 			width: 100px;
+		}
+		&__countDown,
+		&__countUp{
+			padding: 2px;
 		}
 	}
 	

@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext} from 'react';
 import styles from './Main.module.scss'
 import Card from '../../components/Card/Card';
 import burger from '../../images/burger.png'
-import modalBurger from '../../images/modal-burger.png'
 import pomidor from '../../images/pomidor.png'
 import ogurec from '../../images/ogurec.png'
 import Menu from '../../components/Menu/Menu';

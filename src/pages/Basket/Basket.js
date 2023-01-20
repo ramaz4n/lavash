@@ -48,7 +48,8 @@ function Basket(props) {
 						{
 							basketProducts.map(e=>(
 								<BasketItem
-									id={e.id}
+									id = {e.id}
+									productId={e.productId}
 									img={e.img}
 									title={e.name}
 									price={e.price}

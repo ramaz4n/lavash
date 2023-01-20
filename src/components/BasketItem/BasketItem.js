@@ -10,7 +10,7 @@ function BasketItem(props) {
 	const {basketProducts, setBasketProducts} = useContext(Context)
 
 	const deteteBasketItem = (e) => {
-		const newProducts = basketProducts.filter(product => product.id !== props.id)
+		const newProducts = basketProducts.filter(elem => elem.id !== props.id)
 		setBasketProducts(newProducts)
 	}
 
