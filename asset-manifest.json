@@ -1,11 +1,10 @@
 {
   "files": {
-    "main.css": "/lavash/static/css/main.97cf6b04.css",
-    "main.js": "/lavash/static/js/main.d02e4adf.js",
+    "main.css": "/lavash/static/css/main.c79cc9a9.css",
+    "main.js": "/lavash/static/js/main.a0d626ea.js",
     "static/media/maps.png": "/lavash/static/media/maps.8bd8150cd3a3574b7711.png",
     "static/media/ogurec.png": "/lavash/static/media/ogurec.caf54ed9cf5ce61da4ec.png",
     "static/media/salat.png": "/lavash/static/media/salat.426c05418dc9ba2d5c89.png",
-    "static/media/modal-burger.png": "/lavash/static/media/modal-burger.b087c5a01550389a7b89.png",
     "static/media/chesse.png": "/lavash/static/media/chesse.48bbc43ca57a8a7b591a.png",
     "static/media/burger.png": "/lavash/static/media/burger.7138336a0bf9fb999ce0.png",
     "static/media/pomidor.png": "/lavash/static/media/pomidor.2cd9d676beb5cfb77c1f.png",
@@ -21,11 +20,11 @@
     "static/media/vk.svg": "/lavash/static/media/vk.bc8df80f5ef136b24ac6a20de64377c4.svg",
     "static/media/edit.svg": "/lavash/static/media/edit.6c6d9e984a267cbbb50cf586ff233cc0.svg",
     "index.html": "/lavash/index.html",
-    "main.97cf6b04.css.map": "/lavash/static/css/main.97cf6b04.css.map",
-    "main.d02e4adf.js.map": "/lavash/static/js/main.d02e4adf.js.map"
+    "main.c79cc9a9.css.map": "/lavash/static/css/main.c79cc9a9.css.map",
+    "main.a0d626ea.js.map": "/lavash/static/js/main.a0d626ea.js.map"
   },
   "entrypoints": [
-    "static/css/main.97cf6b04.css",
-    "static/js/main.d02e4adf.js"
+    "static/css/main.c79cc9a9.css",
+    "static/js/main.a0d626ea.js"
   ]
 }
