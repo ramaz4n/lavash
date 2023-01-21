@@ -8,8 +8,9 @@
 	align-items: center;
 	gap: 20px;
 	color: #000;
+	white-space: nowrap;
 	cursor: pointer;
-	overflow-x:scroll;
+	overflow-x: auto;
 	&__item{
 		padding: 4px;
 		border-bottom: 2px solid transparent;
@@ -18,7 +19,14 @@
 	&__item:hover{
 		border-bottom: 2px solid #A20B02;
 	}
+	&__itemActiv{
+		padding: 4px;
+		border-bottom: 2px solid #A20B02;
+		transition: all 0.2s;
+	}
+	&::-webkit-scrollbar { width: 0 !important }
 }
+
 
 @media(max-width: 750px){
 	.menu{
@@ -29,6 +37,7 @@
 
 @media(max-width: 480px){
 	.menu{
+		overflow-x: auto;
 		font-size: 12.4969px;
 		line-height: 15px;
 		gap: 10px;

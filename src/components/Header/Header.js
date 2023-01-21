@@ -28,24 +28,27 @@ function Header(props) {
 						<div></div>
 						<div></div>
 					</div>
-					<div className={burgerMenu? styles.burgerMenu : styles.off}>
-						<div className={styles.burgerMenu__closeWrap}>
-							<div onClick={burgerMenuHandler} className={styles.burgerMenu__close}></div>
-						</div>
-						<nav className={styles.burgerMenu__wrap}>
-							<span className={styles.burgerMenu__delivery} >Доставка 24/7</span>
-							<a className={styles.burgerMenu__phone} href="tel:906906" type="phone"> 906-906</a>
-							<Link to="/delivery" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >О доставке</Link>
-							<Link to="/contacts" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >Контакты</Link>
-							<div className={styles.burgerMenu__sity}>
-								<span>Выбрать город: </span>
-								<select className={styles.burgerMenu__select}>
-									<option value="Ижевск">Ижевск</option>
-									<option value="Казань">Казань</option>
-								</select>
+					<div onClick={burgerMenuHandler} className={burgerMenu? styles.burgerMenuBack : styles.off}>
+						<div onClick={(e)=>{e.stopPropagation()}} className={burgerMenu? styles.burgerMenu : styles.off}>
+							<div className={styles.burgerMenu__closeWrap}>
+								<div onClick={burgerMenuHandler} className={styles.burgerMenu__close}></div>
 							</div>
-						</nav>
+							<nav className={styles.burgerMenu__wrap}>
+								<span className={styles.burgerMenu__delivery} >Доставка 24/7</span>
+								<a className={styles.burgerMenu__phone} href="tel:906906" type="phone"> 906-906</a>
+								<Link to="/delivery" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >О доставке</Link>
+								<Link to="/contacts" onClick={burgerMenuHandler} className={styles.burgerMenu__some} >Контакты</Link>
+								<div className={styles.burgerMenu__sity}>
+									<span>Выбрать город: </span>
+									<select className={styles.burgerMenu__select}>
+										<option value="Ижевск">Ижевск</option>
+										<option value="Казань">Казань</option>
+									</select>
+								</div>
+							</nav>
+						</div>
 					</div>
+					
 
 
 					<div className={styles.header__logoWrap}>
