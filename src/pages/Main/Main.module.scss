@@ -22,13 +22,13 @@
 
 .menuWrapper{
 	max-width: 1235px;
-	min-height: 400px;
+	min-height: 500px;
 	margin: 71px auto 200px auto;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	column-gap: 50px;
-	row-gap: 71px;
+	row-gap: 40px;
 }
 .pomidor{
 	position: absolute;
@@ -58,10 +58,16 @@
 
 @media(max-width: 710px){
 	.menuWrapper{
-		min-height: 200px;
 		justify-content: center;
-		margin: 71px auto 150px auto;
+		margin: 71px auto 150px ;
 	}
+	.pomidor{
+		display: none;
+	}
+	.ogurec{
+		display: none;
+	}
+	
 }
 
 @media(max-width: 480px){

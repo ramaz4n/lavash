@@ -27,7 +27,7 @@ function Card(props) {
 		
 
 	return (
-		<div className={styles.card}>
+		<div  className={styles.card}>
 			<img className={styles.card__img} src={props.img} alt="img" />
 			<div>
 				<h3 className={styles.card__title}>{props.title}</h3>

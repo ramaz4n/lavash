@@ -49,18 +49,18 @@ function App() {
 	>
 		<div className={styles.App}>
 			<Header/>
-			<Container>
-				<Routes>
-					<Route path="/" element={<Main/>} />
-					<Route path="delivery" element={<Delivery/>} />	
-					<Route path="contacts" element={<Contacts/>} />	
-					<Route path="basket" element={<Basket/>} />
-					<Route path="auth" element={<Auth/>} />
-					<Route path="registration" element={<Registration/>} />
-					<Route path="account" element={<Account/>} />
-				</Routes>
+				<Container>
+					<Routes>
+						<Route path="/" element={<Main/>} />
+						<Route path="delivery" element={<Delivery/>} />	
+						<Route path="contacts" element={<Contacts/>} />	
+						<Route path="basket" element={<Basket/>} />
+						<Route path="auth" element={<Auth/>} />
+						<Route path="registration" element={<Registration/>} />
+						<Route path="account" element={<Account/>} />
+					</Routes>
 
-			</Container>
+				</Container>
 			<Footer/>
 		</div>
 	</Context.Provider>

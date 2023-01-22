@@ -9,7 +9,10 @@
 	list-style: none;
 	font-family: 'Inter', sans-serif;
 }
-
+html{
+	height: 100%;
+}
 body{
+	min-height: 100%;
 	background-color: #f2f2f2;
 }

@@ -6,7 +6,7 @@ import Slider from "react-slick";
 
 function Menu(props) {
 	const [menuItems, setMenuItems] = useState([])
-	const [activItem, setActivItem] = useState(false)
+	const [activ, setActiv] = useState(false)
 	const {setProducts} = useContext(Context);
 
 
@@ -17,7 +17,16 @@ function Menu(props) {
 
 
 	const setCategories = (e) =>{
-		setActivItem(true)
+		menuItems.map(elem=>{
+			elem.active = false;
+		})
+		menuItems.map(elem=>{
+			if(e.target.id == elem.id){
+				elem.active = true;
+			}
+		})
+
+
 		async function getCategories (){
 			await fetch(`https://lavash.endlessmind.space/api/products?category=${e.target.id}`, requestOptions)
 			.then(response => response.json())
@@ -35,7 +44,17 @@ function Menu(props) {
 		await fetch("https://lavash.endlessmind.space/api/categories", requestOptions)
 		.then(response => response.json())
 		.then(result => {
-			setMenuItems(result)
+			let items = [];
+			result.map((elem)=>{
+				items.push( 
+					{
+						"id": elem.id,
+						"name": elem.name,
+						"active": false
+					}
+				)
+			})
+			setMenuItems(items) 
 		})
 		.catch(error => console.log('error', error));
 	}
@@ -45,37 +64,24 @@ function Menu(props) {
 	}, []);
 
 
-
 	return (
 			<ul className={styles.menu}>
 				{
 					menuItems.map(elem=>(
 						<li 
+							active ={elem.active}
 							id={elem.id} 
 							onClick={setCategories} 
-							className={styles.menu__item}
+							className={elem.active? styles.active__item: styles.menu__item}
 						>
 							{elem.name}
 						</li>
 					))
 				}
-				<li  className={styles.menu__item}>
-					fzdgfzcv
-				</li>
-				<li  className={styles.menu__item}>
-					fzdgfzcv
-				</li>
-				<li  className={styles.menu__item}>
-					fzdgfzcv
-				</li>
-				<li  className={styles.menu__item}>
-					fzdgfzcv
-				</li>
-				<li  className={styles.menu__item}>
-					fzdgfzcv
-				</li>
         	</ul>
 	);
 }
 
 export default Menu;
+
+
