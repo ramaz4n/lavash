@@ -23,8 +23,7 @@ function Main(props) {
 					products.map(elem=>(
 						<Card 
 							id = {elem.id}
-							img={burger} 
-							//img={elem.photo_id} 
+							img={elem.photo} 
 							title={elem.name} 
 							text={elem.desc}
 							price={elem.price}

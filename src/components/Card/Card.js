@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import Modal from '../Modal/Modal';
 import styles from './Card.module.scss'
 
@@ -49,7 +49,6 @@ function Card(props) {
 
 					<Modal
 						id={props.id}
-						//product={product}
 						onClick={closeModal}
 						modal={modal}
 						count={count}

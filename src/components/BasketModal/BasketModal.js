@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from './Modal.module.scss'
-import MoreItem from './../MoreItem/MoreItem';
+import styles from './BasketModal.module.scss'
+import MoreItem from '../MoreItem/MoreItem';
 import { Context } from '../../Context';
 
-function Modal(props) {
-	const {setBasketProducts} = useContext(Context)
+function BasketModal(props) {
+	const {basketProducts, setBasketProducts} = useContext(Context)
 	const [product, setProduct] = useState();
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [options, setOptions] = useState([]);
@@ -17,7 +17,7 @@ function Modal(props) {
 	};
 
 	async function getProduct (){
-		await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
+		await fetch(`https://lavash.endlessmind.space/api/products/${props.productId}`, requestOptions)
 		.then(response => response.json())
 		.then(result => {
 			setProduct(result)
@@ -27,22 +27,30 @@ function Modal(props) {
 
 
 	const addToBasket = (e) => {
+		let basProducts = basketProducts
 		if(props.count == 0){
 			alert( "Выбрано товаров 0" );
 		}else{
-				setBasketProducts(prev => [...prev, {
-						"id":             Math.floor(Math.random() * 1000) + 1,
-						"productId":		props.id,
-						"name":	         product.name,
-						"price":	         totalPrice,
-						"img":         	product.photo,
-						"count":          props.count,
-						"options":        options,
-						"additions":      additions
-					}
-				])
-				props.onClick()
+			basProducts.map((elem, index)=>{
+				if(props.id == elem.id){
+					basProducts.splice(index, 1)
+				}
+			})
+			basProducts.push({
+					"id":             Math.floor(Math.random() * 1000) + 1,
+					"productId":		props.productId,
+					"name":	         product.name,
+					"price":	         totalPrice,
+					"img":         	product.photo,
+					"count":          props.count,
+					"options":        options,
+					"additions":      additions
+				}
+			)
 		}
+		setBasketProducts(basProducts)
+		props.onClick()
+		console.log(basketProducts)
 	}
 
 
@@ -77,7 +85,7 @@ function Modal(props) {
 			 opt.push({
 				"id": e.target.dataset.groupid,
 				"value": e.target.id,
-				"price":	parseInt(e.target.dataset.price),
+				"price":	parseInt(e.target.dataset.price)
 			})
 		}else{
 			opt.map(elem => {
@@ -87,7 +95,7 @@ function Modal(props) {
 					opt.push({
 						"id": e.target.dataset.groupid,
 						"value": e.target.id,
-						"price":	parseInt(e.target.dataset.price),
+						"price":	parseInt(e.target.dataset.price)
 					})
 				}
 			})
@@ -104,7 +112,6 @@ function Modal(props) {
 			}
 		}
 		setOptions(opt)
-		totalPriceHandler()
 		console.log(options)
 	}
 
@@ -140,7 +147,6 @@ function Modal(props) {
 			}
 
 			setAdditions(add)
-			totalPriceHandler()
 			console.log(additions)
 		}
 	}
@@ -259,7 +265,7 @@ function Modal(props) {
 								<span>{props.count}</span>
 								<span onClick={props.countUpHandler} className={styles.card__countUp}>+</span>
 							</div>
-							<button onClick={addToBasket} className={styles.info__resultBtn}>Добавить в корзину</button>
+							<button onClick={addToBasket} className={styles.info__resultBtn}>Сохранить изменения</button>
 						</div>
 					</div>
 				</div>
@@ -269,4 +275,4 @@ function Modal(props) {
 	);
 }
 
-export default Modal;
+export default BasketModal;

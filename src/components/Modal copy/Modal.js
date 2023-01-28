@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react';
 import styles from './Modal.module.scss'
-import MoreItem from './../MoreItem/MoreItem';
+import MoreItem from '../MoreItem/MoreItem';
 import { Context } from '../../Context';
 
 function Modal(props) {
-	const {setBasketProducts} = useContext(Context)
+	const {basketProducts, setBasketProducts} = useContext(Context)
 	const [product, setProduct] = useState();
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [options, setOptions] = useState([]);
@@ -77,7 +77,7 @@ function Modal(props) {
 			 opt.push({
 				"id": e.target.dataset.groupid,
 				"value": e.target.id,
-				"price":	parseInt(e.target.dataset.price),
+				"price":	parseInt(e.target.dataset.price)
 			})
 		}else{
 			opt.map(elem => {
@@ -87,7 +87,7 @@ function Modal(props) {
 					opt.push({
 						"id": e.target.dataset.groupid,
 						"value": e.target.id,
-						"price":	parseInt(e.target.dataset.price),
+						"price":	parseInt(e.target.dataset.price)
 					})
 				}
 			})
@@ -104,7 +104,6 @@ function Modal(props) {
 			}
 		}
 		setOptions(opt)
-		totalPriceHandler()
 		console.log(options)
 	}
 
@@ -140,7 +139,6 @@ function Modal(props) {
 			}
 
 			setAdditions(add)
-			totalPriceHandler()
 			console.log(additions)
 		}
 	}

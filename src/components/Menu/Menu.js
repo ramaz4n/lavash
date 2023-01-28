@@ -1,12 +1,11 @@
 import React, {useState, useEffect, useContext} from 'react';
 import styles from './Menu.module.scss'
 import { Context } from '../../Context';
-import Slider from "react-slick";
+
 
 
 function Menu(props) {
 	const [menuItems, setMenuItems] = useState([])
-	const [activ, setActiv] = useState(false)
 	const {setProducts} = useContext(Context);
 
 

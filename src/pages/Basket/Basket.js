@@ -10,27 +10,48 @@ import { Context } from '../../Context';
 
 
 function Basket(props) {
-	const [conChecked, setConChecked] = useState(false)
-	const [totalPrice, setTotalPrice] = useState(0)
+	//Products for basket
+	const {basketProducts, setBasketProducts} = useContext(Context)
+
+	//Conditions check state
+	const [conditionsChecked, setConditionsChecked] = useState(false)
+
+	//Prices states
+	const [totalBasketPrice, setTotalBasketPrice] = useState(0)
 	const [basketPrice, setBasketPrice] = useState(0)
 	const [deliveryPrice, setDeliveryPrice] = useState(0)
-	const {basketProducts} = useContext(Context)
+	
+	// Delivery states
+	const [streetAndHome, setStreetAndHome] = useState('')
+	const [flat, setFlat] = useState('')
+	const [doorphone, setDoorphone] = useState('')
+	const [entrance, setEntrance] = useState('')
+	const [floor, setFloor] = useState('')
 
-	const changeCon = ()=>{
-		setConChecked(!conChecked)
+	//Comment state
+	const [comment, setComment] = useState('')
+
+	//Contact states
+	const [phone, setPhone] = useState('')
+	const [name, setName] = useState('')
+	const [email, setEmail] = useState('')
+
+	console.log()
+
+	const changeConditions = ()=>{
+		setConditionsChecked(!conditionsChecked)
 	}
 
-	const totalPriceHandler = ()=>{
+	const totalBasketPriceHandler = ()=>{
 		basketProducts.map(e => {
-			setTotalPrice(totalPrice + e.price)
+			setTotalBasketPrice(totalBasketPrice + e.price)
 		})
 	}
-
-	useEffect(()=>{
-		totalPriceHandler()
-	},[basketProducts])
 	
-
+	
+	useEffect(()=>{
+		totalBasketPriceHandler()
+	},[basketProducts])
 
 	return (
 		<div className={styles.basket}>
@@ -73,6 +94,7 @@ function Basket(props) {
 								className={styles.inputHome} 
 								type="text" 
 								placeholder='Введите улицу и дом'
+								onChange={(e)=>setStreetAndHome(e.target.value)}
 							/>
 						</div>
 						<div className={styles.basket__itemBodyElem}>
@@ -131,8 +153,8 @@ function Basket(props) {
 						<div className={styles.conditions}>
 							<label >
 								<input 
-									checked={conChecked} 
-									onChange={changeCon} 
+									checked={conditionsChecked} 
+									onChange={changeConditions} 
 									className={styles.conditions__input} 
 									type="checkbox" 
 									name="conditions" 
@@ -150,7 +172,7 @@ function Basket(props) {
 			</div>
 			<div className={styles.basket__total}> 
 				<div className={styles.totalOff}>
-					<span>Товар на сумму:</span><span>{totalPrice}&#8381;</span>
+					<span>Товар на сумму:</span><span>{}&#8381;</span>
 				</div>
 				<div className={styles.totalOff}>
 					<span>Доставка:</span><span>{deliveryPrice}&#8381;</span>
@@ -166,3 +188,5 @@ function Basket(props) {
 }
 
 export default Basket;
+
+

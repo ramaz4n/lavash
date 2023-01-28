@@ -2,10 +2,29 @@
 	width: 100%;
 	padding: 30px 10px;
 	display: flex;
-	justify-content: space-between;
-	align-items: center;
+	flex-direction: column;
+	row-gap: 15px;
 	border-bottom: 1px solid #E8E8E8;
 	position: relative;
+	&__Wrap{
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	}
+	&__additions{
+		margin-left: 67px;
+		display: flex;
+		flex-direction: column;
+		color: #008960;
+		font-family: 'Montserrat';
+		font-style: normal;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 20px;
+		span{
+			color: #777777;
+		}
+	}
 	&__title{
 		font-family: 'Montserrat';
 		font-style: normal;
