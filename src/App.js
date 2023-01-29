@@ -12,6 +12,7 @@ import Registration from './pages/Registration/Registration';
 import Account from './pages/Account/Account';
 import {Context} from './Context'
 import { useEffect, useState } from 'react';
+import PayStatus from './pages/PayStatus/PayStatus';
 
 
 function App() {
@@ -58,6 +59,7 @@ function App() {
 						<Route path="auth" element={<Auth/>} />
 						<Route path="registration" element={<Registration/>} />
 						<Route path="account" element={<Account/>} />
+						<Route path="payStatus" element={<PayStatus/>} />
 					</Routes>
 
 				</Container>

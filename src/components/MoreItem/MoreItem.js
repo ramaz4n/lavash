@@ -14,9 +14,10 @@ function MoreItem(props) {
 		setAdditions({
 			"id": props.id,
 			"quantity": count + 1,
-			"price": props.price,
+			"price": props.price * (count + 1),
 			"name": props.moreTitle
 		})
+
 	}
 	const countDownHandler = (e) =>{
 		if(count > 0){
@@ -25,7 +26,7 @@ function MoreItem(props) {
 			setAdditions({
 				"id": props.id,
 				"quantity": count - 1,
-				"price": props.price,
+				"price": props.price  * (count - 1) ,
 				"name": props.moreTitle
 			})
 		}
@@ -33,7 +34,6 @@ function MoreItem(props) {
 	
 	useEffect(e=>{
 		props.getAdditions(additions)
-		//console.log(additions)
 	},[additions])
 
 

@@ -49,7 +49,9 @@ function BasketModal(props) {
 			)
 		}
 		setBasketProducts(basProducts)
-		props.onClick()
+		if(props.count !== 0 ) {
+			props.onClick()
+		}
 		console.log(basketProducts)
 	}
 
@@ -80,6 +82,7 @@ function BasketModal(props) {
 
 	
 	const optionsHandler = (e) => {
+		console.log(e)
 		let opt = options
 		if(opt.length == 0){
 			 opt.push({
@@ -91,6 +94,7 @@ function BasketModal(props) {
 			opt.map(elem => {
 				if(e.target.dataset.groupid == elem.id){
 					elem.value = e.target.id
+					elem.price = parseInt(e.target.dataset.price)
 				}else{
 					opt.push({
 						"id": e.target.dataset.groupid,
@@ -125,6 +129,7 @@ function BasketModal(props) {
 				add.map(elem => {
 					if(e.id == elem.id){
 						elem.quantity = e.quantity
+						elem.price = e.price
 					}else{
 						add.push(e)
 					}

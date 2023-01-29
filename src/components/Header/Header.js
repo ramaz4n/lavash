@@ -52,7 +52,7 @@ function Header(props) {
 
 
 					<div className={styles.header__logoWrap}>
-						<Link to="/"><Logo/></Link>
+						<Logo/>
 						<div className={styles.header__sity}>
 							<span>Выбрать город: </span>
 							<select className={styles.header__select}>
@@ -71,7 +71,7 @@ function Header(props) {
 						</nav>
 
 						<div className={styles.header__navIcon}>
-							<Link to="/auth"><img className={styles.userIcon} src={userIcon} alt="user" /></Link>
+							<Link to="/payStatus"><img className={styles.userIcon} src={userIcon} alt="user" /></Link>
 							<Link to="/basket">
 								<div className={styles.header__busket}>
 									<img className={styles.basketIcon} src={basketIcon} alt="busket" />

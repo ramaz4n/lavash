@@ -46,7 +46,6 @@ function Modal(props) {
 	}
 
 
-
 	const totalPriceHandler = () => {
 		let optionsPrice = 0;
 		let additionsPrice = 0;
@@ -83,6 +82,7 @@ function Modal(props) {
 			opt.map(elem => {
 				if(e.target.dataset.groupid == elem.id){
 					elem.value = e.target.id
+					elem.price = parseInt(e.target.dataset.price)
 				}else{
 					opt.push({
 						"id": e.target.dataset.groupid,
@@ -118,6 +118,7 @@ function Modal(props) {
 				add.map(elem => {
 					if(e.id == elem.id){
 						elem.quantity = e.quantity
+						elem.price = e.price
 					}else{
 						add.push(e)
 					}
@@ -148,6 +149,7 @@ function Modal(props) {
 	useEffect((e) =>{
 		getProduct()	
 	},[])
+
 
 
 	useEffect((e) =>{
