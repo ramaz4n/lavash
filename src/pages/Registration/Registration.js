@@ -8,12 +8,16 @@ import pomidor from '../../images/pomidor.png'
 
 function Registration(props) {
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
 	const [password, setPassword] = useState('')
 	const [password2, setPassword2] = useState('')
 
 
 	const changeEmail= (e)=>{
 		setEmail(e.target.value)
+  	}
+	const changePhone= (e)=>{
+		setPhone(e.target.value)
   	}
 	const changePass= (e)=>{
 		setPassword(e.target.value)
@@ -33,6 +37,7 @@ function Registration(props) {
 					<h2 className={styles.auth__title}>Быстрая регистрация</h2>
 				</div>
 				<input onChange={changeEmail} className={styles.auth__revEmail} placeholder="E-mail" type="text" />
+				<input onChange={changePhone} className={styles.auth__revPhone} placeholder="Номер телефона" type="text" />
 				<input onChange={changePass} className={styles.auth__revPass} placeholder="Пароль" type="text" />
 				<input onChange={changePass2} className={styles.auth__revPass2} placeholder="Подтвердите пароль" type="text" />
 				<a href="#">Восстановить пароль</a>

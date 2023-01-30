@@ -10,8 +10,10 @@ import { Context } from '../../Context';
 
 
 function Basket(props) {
+	const[order, setOrder] = useState()
 	//Products for basket
 	const {basketProducts, setBasketProducts} = useContext(Context)
+	const [basProducts, setBasProducts] = useState(JSON.parse(localStorage.getItem('basketProducts')))
 
 	//Conditions check state
 	const [conditionsChecked, setConditionsChecked] = useState(false)
@@ -49,9 +51,60 @@ function Basket(props) {
 	}
 	
 	
+	const payHandler=()=>{
+		if(conditionsChecked === false){
+			return alert("Необходимо согласие с Условиями использования, Правилами обработки персональных данных. Согласитесь с данным пунктом внизу страницы")
+		}
+		if(basketProducts.length !== 0 ){
+			let raw = {
+				"delivery": {
+					"streetAndNumber": streetAndHome,
+					"flat": flat,
+					"doorphone": doorphone,
+					"entrance": entrance,
+					"floor": floor
+				},
+				"comment": comment,
+				"contact": {
+					"phone": phone,
+					"name": "",
+					"email": email
+				},
+				"products": basketProducts
+			}
+			
+			
+			let requestOptions = {
+				method: 'POST',
+				body: raw,
+				redirect: 'follow'
+			};
+			async function sendOrder(){
+				await fetch(`https://lavash.endlessmind.space/api/order`, requestOptions)
+				.then(response => response.json())
+				.then(result => {
+					console.log(result)
+				})
+				.catch(error => console.log('error', error));
+			}
+			sendOrder()
+		}else{
+			alert("Корзина пуста")
+		}
+	}
+
+	const getLocalStorageProducts = () =>{
+		let prod = JSON.parse(localStorage.getItem('basketProducts'))
+		console.log(prod)
+		setBasProducts(prod)
+	}
+	
 	useEffect(()=>{
 		totalBasketPriceHandler()
 	},[basketProducts])
+	//useEffect(()=>{
+	//	getLocalStorageProducts()
+	//},[])
 
 	return (
 		<div className={styles.basket}>
@@ -67,7 +120,8 @@ function Basket(props) {
 					</div>
 					<div className={styles.basket__itemBody}>
 						{
-							basketProducts.map(e=>(
+							basProducts?
+							basProducts.map(e=>(
 								<BasketItem
 									id = {e.id}
 									productId={e.productId}
@@ -77,6 +131,8 @@ function Basket(props) {
 									count={e.count}
 								/>
 							))
+							:
+							null
 						}
 
 					</div>
@@ -102,21 +158,25 @@ function Basket(props) {
 								className={styles.inputKv} 
 								type="text" 
 								placeholder='Кв/офис' 
+								onChange={(e)=>setFlat(e.target.value)}
 							/>
 							<input 
 								className={styles.inputOther} 
 								type="text" 
 								placeholder='Домофон'
+								onChange={(e)=>setDoorphone(e.target.value)}
 							/>
 							<input 
 								className={styles.inputOther} 
 								type="text" 
 								placeholder='Подъезд'
+								onChange={(e)=>setEntrance(e.target.value)}
 							/>
 							<input 
 								className={styles.inputOther} 
 								type="text" 
 								placeholder='Этаж'
+								onChange={(e)=>setFloor(e.target.value)}
 							/>
 						</div>
 						<div className={styles.basket__itemBodyElem}>
@@ -124,6 +184,7 @@ function Basket(props) {
 								className={styles.inputKom} 
 								type="text" 
 								placeholder='Комментарий к заказу'
+								onChange={(e)=>setComment(e.target.value)}
 							/>
 						</div>
 					</div>
@@ -141,6 +202,7 @@ function Basket(props) {
 								className={styles.inputPhone} 
 								placeholder='Номер телефона'
 								type="text" 
+								onChange={(e)=>setPhone(e.target.value)}
 							/>
 						</div>
 						<div className={styles.email}>
@@ -148,6 +210,7 @@ function Basket(props) {
 								className={styles.inputEmail} 
 								placeholder='E-mail'
 								type="text" 
+								onChange={(e)=>setEmail(e.target.value)}
 							/>
 						</div>
 						<div className={styles.conditions}>
@@ -181,7 +244,7 @@ function Basket(props) {
 					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{basketPrice}&#8381;</span>
 				</div>
 				
-				<button>Оплатить</button>
+				<button onClick={payHandler}>Оплатить</button>
 			</div>
 		</div>
 	);

@@ -71,7 +71,7 @@ function Header(props) {
 						</nav>
 
 						<div className={styles.header__navIcon}>
-							<Link to="/payStatus"><img className={styles.userIcon} src={userIcon} alt="user" /></Link>
+							<Link to="/auth"><img className={styles.userIcon} src={userIcon} alt="user" /></Link>
 							<Link to="/basket">
 								<div className={styles.header__busket}>
 									<img className={styles.basketIcon} src={basketIcon} alt="busket" />

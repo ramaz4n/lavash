@@ -8,9 +8,12 @@ import { Link } from 'react-router-dom';
 
 function Auth(props) {
 	const [email, setEmail] = useState('')
+	const [phone, setPhone] = useState('')
 	const [password, setPassword] = useState('')
 
-
+	const changePhone= (e)=>{
+		setPhone(e.target.value)
+  	}
 	const changeEmail= (e)=>{
 		setEmail(e.target.value)
 		console.log(email)
@@ -32,6 +35,7 @@ function Auth(props) {
 					<h2 className={styles.auth__title}>Авторизация</h2>
 				</div>
 				<input onChange={changeEmail} className={styles.auth__revEmail} placeholder="E-mail" type="text" />
+				<input onChange={changePhone} className={styles.auth__revPhone} placeholder="Номер телефона" type="text" />
 				<input onChange={changePass} className={styles.auth__revPass} placeholder="Пароль" type="text" />
 				<a href="#">Восстановить пароль</a>
 				<div class={styles.auth__btnWrap}>

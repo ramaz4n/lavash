@@ -18,7 +18,7 @@ import PayStatus from './pages/PayStatus/PayStatus';
 function App() {
 
 	const [products, setProducts] = useState([])
-	const [basketProducts, setBasketProducts] = useState([])
+	const [basketProducts, setBasketProducts] = useState(JSON.parse(localStorage.getItem('basketProducts'))? JSON.parse(localStorage.getItem('basketProducts')):[])
 
 	const requestOptions = {
 		method: 'GET',
@@ -32,10 +32,17 @@ function App() {
 		})
 		.catch(error => console.log('error', error));
 	}
+	const sendToLocalStorage = () =>{
+		localStorage.setItem('basketProducts', JSON.stringify(basketProducts))
+		console.log(localStorage.getItem('basketProducts'))
+	}
 
 	useEffect(() => {
 		getProducts()
 	}, []);
+	useEffect(() => {
+		sendToLocalStorage()
+	}, [basketProducts]);
 
   return (
 	<Context.Provider value={
