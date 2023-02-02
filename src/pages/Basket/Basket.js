@@ -45,9 +45,12 @@ function Basket(props) {
 	}
 
 	const totalBasketPriceHandler = ()=>{
-		basketProducts.map(e => {
-			setTotalBasketPrice(totalBasketPrice + e.price)
+		console.log(basProducts)
+		let price=0;
+		basProducts.map(e => {
+			price = price + e.price
 		})
+		setTotalBasketPrice(price)
 	}
 	
 	
@@ -98,9 +101,6 @@ function Basket(props) {
 		totalBasketPriceHandler()
 	},[basProducts])
 
-	//useEffect(()=>{
-	//	getLocalStorageProducts()
-	//},[])
 
 	return (
 		<div className={styles.basket}>
@@ -231,13 +231,13 @@ function Basket(props) {
 			</div>
 			<div className={styles.basket__total}> 
 				<div className={styles.totalOff}>
-					<span>Товар на сумму:</span><span>{}&#8381;</span>
+					<span>Товар на сумму:</span><span>{totalBasketPrice}&#8381;</span>
 				</div>
 				<div className={styles.totalOff}>
 					<span>Доставка:</span><span>{deliveryPrice}&#8381;</span>
 				</div>
 				<div>
-					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{basketPrice}&#8381;</span>
+					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{totalBasketPrice + deliveryPrice}&#8381;</span>
 				</div>
 				
 				<button onClick={payHandler}>Оплатить</button>

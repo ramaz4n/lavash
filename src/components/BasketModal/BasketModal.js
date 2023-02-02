@@ -9,8 +9,17 @@ function BasketModal(props) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [options, setOptions] = useState([]);
 	const [additions, setAdditions] = useState([]);
+	const [count, setCount] = useState(0);
+	
 
-
+	const countUpHandler = () =>{
+		setCount(count + 1)
+	}
+	const countDownHandler = () =>{
+		if(count > 0){
+			setCount(count - 1);
+		}
+	}
 	const requestOptions = {
 		method: 'GET',
 		redirect: 'follow'
@@ -33,7 +42,7 @@ function BasketModal(props) {
 
 	const addToBasket = (e) => {
 		let basProducts = basketProducts
-		if(props.count == 0){
+		if(count == 0){
 			alert( "Выбрано товаров 0" );
 		}else{
 			basProducts.map((elem, index)=>{
@@ -47,7 +56,7 @@ function BasketModal(props) {
 					"name":	         product.name,
 					"price":	         totalPrice,
 					"img":         	product.photo,
-					"count":          props.count,
+					"count":          count,
 					"options":        options,
 					"additions":      additions
 				}
@@ -55,11 +64,11 @@ function BasketModal(props) {
 		}
 		setBasketProducts(basProducts)
 		sendToLocalStorage()
-		if(props.count !== 0 ) {
+		if(count !== 0 ) {
 			props.onClick()
 		}
 		window.location.reload();
-		console.log(basketProducts)
+
 	}
 
 
@@ -82,7 +91,7 @@ function BasketModal(props) {
 			additionsPrice = 0;
 		}
 		if(product){
-			let tPrice = props.count * (product.price + optionsPrice + additionsPrice)
+			let tPrice = count * (product.price + optionsPrice + additionsPrice)
 			setTotalPrice(tPrice)
 		}
 	}
@@ -123,6 +132,7 @@ function BasketModal(props) {
 			}
 		}
 		setOptions(opt)
+		totalPriceHandler()
 		console.log(options)
 	}
 
@@ -159,18 +169,21 @@ function BasketModal(props) {
 			}
 
 			setAdditions(add)
+			totalPriceHandler()
 			console.log(additions)
 		}
 	}
+
+	
 	
 	useEffect((e) =>{
-		getProduct()	
+		getProduct()
 	},[])
 
 
 	useEffect((e) =>{
 		totalPriceHandler()
-	},[props.count])
+	},[count])
 
 
 	return (
@@ -273,9 +286,9 @@ function BasketModal(props) {
 						<div className={styles.info__result}>
 							<span className={styles.card__price}>{totalPrice}&#8381;</span>
 							<div className={styles.card__count}>
-								<span onClick={props.countDownHandler} className={styles.card__countDown}>-</span>
-								<span>{props.count}</span>
-								<span onClick={props.countUpHandler} className={styles.card__countUp}>+</span>
+								<span onClick={countDownHandler} className={styles.card__countDown}>-</span>
+								<span>{count}</span>
+								<span onClick={countUpHandler} className={styles.card__countUp}>+</span>
 							</div>
 							<button onClick={addToBasket} className={styles.info__resultBtn}>Сохранить изменения</button>
 						</div>
