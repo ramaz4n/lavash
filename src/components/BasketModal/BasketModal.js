@@ -26,6 +26,11 @@ function BasketModal(props) {
 	}
 
 
+	const sendToLocalStorage = () =>{
+		localStorage.setItem('basketProducts', JSON.stringify(basketProducts))
+		console.log(localStorage.getItem('basketProducts'))
+	}
+
 	const addToBasket = (e) => {
 		let basProducts = basketProducts
 		if(props.count == 0){
@@ -49,9 +54,11 @@ function BasketModal(props) {
 			)
 		}
 		setBasketProducts(basProducts)
+		sendToLocalStorage()
 		if(props.count !== 0 ) {
 			props.onClick()
 		}
+		window.location.reload();
 		console.log(basketProducts)
 	}
 

@@ -93,15 +93,11 @@ function Basket(props) {
 		}
 	}
 
-	const getLocalStorageProducts = () =>{
-		let prod = JSON.parse(localStorage.getItem('basketProducts'))
-		console.log(prod)
-		setBasProducts(prod)
-	}
 	
 	useEffect(()=>{
 		totalBasketPriceHandler()
-	},[basketProducts])
+	},[basProducts])
+
 	//useEffect(()=>{
 	//	getLocalStorageProducts()
 	//},[])

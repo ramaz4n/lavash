@@ -14,6 +14,7 @@ function BasketItem(props) {
 	const deteteBasketItem = (e) => {
 		const newProducts = basketProducts.filter(elem => elem.id !== props.id)
 		setBasketProducts(newProducts)
+		window.location.reload();
 	}
 
 
