@@ -35,10 +35,61 @@ function Basket(props) {
 
 	//Contact states
 	const [phone, setPhone] = useState('')
+	const [correctPhone, setCorrectPhone] = useState(false)
 	const [name, setName] = useState('')
 	const [email, setEmail] = useState('')
+	const [correctEmail, setCorrectEmail] = useState(false)
 
-	console.log()
+
+	const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
+	const token = "2e4126073de848027d6fdc2f788080f639af4047";
+
+	const options = {
+		method: "POST",
+		mode: "cors",
+		headers: {
+			"Content-Type": "application/json",
+			"Accept": "application/json",
+			"Authorization": "Token " + token
+		},
+		body: JSON.stringify({query: streetAndHome})
+	}
+
+	async function getAddres(){
+		await fetch(url, options)
+		.then(response => response.text())
+		.then(result => console.log(result))
+		.catch(error => console.log("error", error));
+	}
+
+	const streetAndHomeHandler =(e) =>{
+		setStreetAndHome(e.target.value)
+		getAddres()
+	}
+
+	const emailHandler =(e) =>{
+		setEmail(e.target.value)
+		const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+		if(!re.test(String(e.target.value).toLowerCase())){
+			e.target.style="border: 1px solid #c43939;"
+			setCorrectEmail(false)
+		}else{
+			e.target.style="border: 1px solid #B9B9B9;"
+			setCorrectEmail(true)
+		}
+	}
+
+	const phoneHandler =(e) =>{
+		setPhone(e.target.value)
+		const re = /^((8|\+7)[\- ]?)?(\(?\d{3}\)?[\- ]?)?[\d\- ]{7,10}$/;
+		if(!re.test(String(e.target.value).toLowerCase())){
+			e.target.style="border: 1px solid #c43939;"
+			setCorrectPhone(false)
+		}else{
+			e.target.style="border: 1px solid #B9B9B9;"
+			setCorrectPhone(true)
+		}
+	}
 
 	const changeConditions = ()=>{
 		setConditionsChecked(!conditionsChecked)
@@ -58,6 +109,13 @@ function Basket(props) {
 		if(conditionsChecked === false){
 			return alert("Необходимо согласие с Условиями использования, Правилами обработки персональных данных. Согласитесь с данным пунктом внизу страницы")
 		}
+		if(totalBasketPrice < 300){
+			return alert('Минимальная стоимость заказа от 300 рублей')
+		}
+		if(!correctEmail || !correctPhone){
+			return alert('Данные не корректны. Проверьте правильно ли вы указали все поля')
+		}
+
 		if(basketProducts.length !== 0 ){
 			let raw = {
 				"delivery": {
@@ -146,7 +204,7 @@ function Basket(props) {
 								className={styles.inputHome} 
 								type="text" 
 								placeholder='Введите улицу и дом'
-								onChange={(e)=>setStreetAndHome(e.target.value)}
+								onChange={streetAndHomeHandler}
 							/>
 						</div>
 						<div className={styles.basket__itemBodyElem}>
@@ -198,7 +256,7 @@ function Basket(props) {
 								className={styles.inputPhone} 
 								placeholder='Номер телефона'
 								type="text" 
-								onChange={(e)=>setPhone(e.target.value)}
+								onChange={phoneHandler}
 							/>
 						</div>
 						<div className={styles.email}>
@@ -206,7 +264,7 @@ function Basket(props) {
 								className={styles.inputEmail} 
 								placeholder='E-mail'
 								type="text" 
-								onChange={(e)=>setEmail(e.target.value)}
+								onChange={emailHandler}
 							/>
 						</div>
 						<div className={styles.conditions}>

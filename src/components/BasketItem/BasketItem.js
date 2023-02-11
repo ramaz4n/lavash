@@ -47,7 +47,7 @@ function BasketItem(props) {
 		<div className={styles.basketItem}>
 			<span onClick={deteteBasketItem} className={styles.closeItem}>&#10006;</span>
 			<div className={styles.basketItem__Wrap}>
-				<img className={styles.burgerImg} src={props.img} alt="img" />
+				<img className={styles.basketItem__img} src={props.img} alt="img" />
 				<div className={styles.basketItem__info}>
 					<span className={styles.basketItem__title}>{props.title}</span>
 					<div className={styles.basketItem__infoDetails}>

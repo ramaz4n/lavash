@@ -9,7 +9,7 @@ import { Context } from '../../Context';
 
 function Main(props) {
 	const {products} = useContext(Context)
-
+	
 	return (
 		<div>
 			<img className={styles.pomidor} src={pomidor} alt="img" />

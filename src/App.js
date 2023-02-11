@@ -39,6 +39,7 @@ function App() {
 
 	useEffect(() => {
 		getProducts()
+		console.log(products)
 	}, []);
 	useEffect(() => {
 		sendToLocalStorage()

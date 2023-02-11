@@ -12,7 +12,7 @@
 		align-items: center;
 	}
 	&__additions{
-		margin-left: 67px;
+		margin-left: 100px;
 		display: flex;
 		flex-direction: column;
 		color: #008960;
@@ -61,10 +61,10 @@
 	cursor: pointer;
 	color:#585858;
 }
-.burgerImg{
+.basketItem__img{
 	width: 70px;
 	height: 71px;
-	margin-right: 10px;
+	margin-right: 30px;
 }
 
 .count{
@@ -115,7 +115,7 @@
 	.basketItem__title{
 		margin-right: 10px;
 	}
-	.burgerImg{
+	.basketItem__img{
 		margin-top: 0;
 		margin-right: 30px;
 	}
@@ -142,8 +142,11 @@
 			font-size: 16px;
 			line-height: 20px;
 		}
+		&__additions{
+			margin-left: 90px;
+		}
 	}
-	.burgerImg{
+	.basketItem__img{
 		width: 61px;
 		height: 61px;
 	}
