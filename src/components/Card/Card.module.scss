@@ -8,6 +8,11 @@
 	align-items: center;
 	padding: 33px 34px 20px 34px;
 
+	&__wrap{
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+	}
 	&__title{
 		margin-top: 16px;
 		font-family: 'Montserrat';
@@ -83,7 +88,7 @@
 	}
 	&__img{
 		max-width: 150px;
-		height: 164px;
+		height: 150px;
 	}
 }
 

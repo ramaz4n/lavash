@@ -29,7 +29,7 @@ function Card(props) {
 	return (
 		<div  className={styles.card}>
 			<img className={styles.card__img} src={props.img} alt="img" />
-			<div>
+			<div className={styles.card__wrap}>
 				<h3 className={styles.card__title}>{props.title}</h3>
 				<p className={styles.card__text}>{props.text}</p>
 

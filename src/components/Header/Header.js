@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Logo from '../Logo/Logo';
 import userIcon from '../../images/icon1.svg'
 import basketIcon from '../../images/icon2.svg'
@@ -11,12 +11,25 @@ import { Context } from './../../Context';
 
 
 function Header(props) {
+	const [basketCount, setBasketCount] = useState(0)
 	const {basketProducts} = useContext(Context);
 	const [burgerMenu, setBurgerMenu] = useState(false)
+
+	const basketCountHandler = () =>{
+		let count = 0
+		basketProducts.map(e=>{
+			count = count + e.count
+		})
+		setBasketCount(count)
+	}
 
 	const burgerMenuHandler = () =>{
 		setBurgerMenu(!burgerMenu)
 	}
+
+	useEffect(()=>{
+		basketCountHandler()
+	}, [basketProducts])
 
 	return (
 		<div className={styles.header}>
@@ -75,7 +88,7 @@ function Header(props) {
 							<Link to="/basket">
 								<div className={styles.header__busket}>
 									<img className={styles.basketIcon} src={basketIcon} alt="busket" />
-									<span className={styles.header__busCount}>{basketProducts.length}</span>
+									<span className={styles.header__busCount}>{basketCount}</span>
 								</div>
 							</Link>
 						</div>
