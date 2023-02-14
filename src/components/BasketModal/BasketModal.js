@@ -12,6 +12,7 @@ function BasketModal(props) {
 	const [count, setCount] = useState(0);
 	
 
+
 	const countUpHandler = () =>{
 		setCount(count + 1)
 	}
@@ -26,7 +27,7 @@ function BasketModal(props) {
 	};
 
 	async function getProduct (){
-		await fetch(`https://lavash.endlessmind.space/api/products/${props.productId}`, requestOptions)
+		await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
 		.then(response => response.json())
 		.then(result => {
 			setProduct(result)
@@ -37,7 +38,6 @@ function BasketModal(props) {
 
 	const sendToLocalStorage = () =>{
 		localStorage.setItem('basketProducts', JSON.stringify(basketProducts))
-		console.log(localStorage.getItem('basketProducts'))
 	}
 
 	const addToBasket = (e) => {
@@ -46,17 +46,17 @@ function BasketModal(props) {
 			alert( "Выбрано товаров 0" );
 		}else{
 			basProducts.map((elem, index)=>{
-				if(props.id == elem.id){
+				if(props.orderId == elem.orderId){
 					basProducts.splice(index, 1)
 				}
 			})
 			basProducts.push({
-					"id":             Math.floor(Math.random() * 1000) + 1,
-					"productId":		props.productId,
+					"id":					props.id,
+					"orderId":        Math.floor(Math.random() * 1000) + 1,
 					"name":	         product.name,
 					"price":	         totalPrice,
 					"img":         	product.photo,
-					"count":          count,
+					"quantity":          count,
 					"options":        options,
 					"additions":      additions
 				}

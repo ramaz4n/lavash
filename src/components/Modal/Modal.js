@@ -9,6 +9,8 @@ function Modal(props) {
 	const [totalPrice, setTotalPrice] = useState(0);
 	const [options, setOptions] = useState([]);
 	const [additions, setAdditions] = useState([]);
+	const [count, setCount] = useState(0);
+
 
 
 	const requestOptions = {
@@ -27,16 +29,16 @@ function Modal(props) {
 
 
 	const addToBasket = (e) => {
-		if(props.count == 0){
+		if(count == 0){
 			alert( "Выбрано товаров 0" );
 		}else{
 				setBasketProducts(prev => [...prev, {
-						"id":             Math.floor(Math.random() * 1000) + 1,
-						"productId":		props.id,
+						"id":					props.id,
+						"orderId":        Math.floor(Math.random() * 1000) + 1,
 						"name":	         product.name,
 						"price":	         totalPrice,
 						"img":         	product.photo,
-						"count":          props.count,
+						"quantity":       count,
 						"options":        options,
 						"additions":      additions
 					}
@@ -64,7 +66,7 @@ function Modal(props) {
 			additionsPrice = 0;
 		}
 		if(product){
-			let tPrice = props.count * (product.price + optionsPrice + additionsPrice)
+			let tPrice = count * (product.price + optionsPrice + additionsPrice)
 			setTotalPrice(tPrice)
 		}
 	}
@@ -110,7 +112,6 @@ function Modal(props) {
 
 	const additionsHandler = (e)=>{
 		if(e){
-			console.log(e)
 			let add = additions
 			if(add.length == 0){
 				add.push(e)
@@ -146,6 +147,17 @@ function Modal(props) {
 		}
 	}
 	
+
+	const countUpHandler = () =>{
+		setCount(count + 1)
+	}
+	const countDownHandler = () =>{
+		if(count > 0){
+			setCount(count - 1);
+		}
+	}
+
+
 	useEffect((e) =>{
 		getProduct()	
 	},[])
@@ -154,7 +166,7 @@ function Modal(props) {
 
 	useEffect((e) =>{
 		totalPriceHandler()
-	},[props.count])
+	},[count])
 
 
 	return (
@@ -257,9 +269,9 @@ function Modal(props) {
 						<div className={styles.info__result}>
 							<span className={styles.card__price}>{totalPrice}&#8381;</span>
 							<div className={styles.card__count}>
-								<span onClick={props.countDownHandler} className={styles.card__countDown}>-</span>
-								<span>{props.count}</span>
-								<span onClick={props.countUpHandler} className={styles.card__countUp}>+</span>
+								<span onClick={countDownHandler} className={styles.card__countDown}>-</span>
+								<span>{count}</span>
+								<span onClick={countUpHandler} className={styles.card__countUp}>+</span>
 							</div>
 							<button onClick={addToBasket} className={styles.info__resultBtn}>Добавить в корзину</button>
 						</div>

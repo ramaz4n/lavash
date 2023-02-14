@@ -10,7 +10,7 @@ import { Context } from '../../Context';
 
 
 function Basket(props) {
-	const[order, setOrder] = useState()
+	const [order, setOrder] = useState()
 	//Products for basket
 	const {basketProducts, setBasketProducts} = useContext(Context)
 	const [basProducts, setBasProducts] = useState(JSON.parse(localStorage.getItem('basketProducts')))
@@ -20,7 +20,6 @@ function Basket(props) {
 
 	//Prices states
 	const [totalBasketPrice, setTotalBasketPrice] = useState(0)
-	const [basketPrice, setBasketPrice] = useState(0)
 	const [deliveryPrice, setDeliveryPrice] = useState(0)
 	
 	// Delivery states
@@ -149,15 +148,18 @@ function Basket(props) {
 				.catch(error => console.log('error', error));
 			}
 			sendOrder()
+			console.log(basketProducts)
 		}else{
 			alert("Корзина пуста")
 		}
 	}
 
-	
+
+
+
 	useEffect(()=>{
 		totalBasketPriceHandler()
-	},[basProducts])
+	},[basketProducts])
 
 
 	return (
@@ -178,11 +180,13 @@ function Basket(props) {
 							basProducts.map(e=>(
 								<BasketItem
 									id = {e.id}
-									productId={e.productId}
+									orderId={e.orderId}
 									img={e.img}
 									title={e.name}
 									price={e.price}
-									count={e.count}
+									count={e.quantity}
+									setTotalBasketPrice={setTotalBasketPrice}
+									totalBasketPrice={totalBasketPrice}
 								/>
 							))
 							:

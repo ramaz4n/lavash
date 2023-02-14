@@ -9,16 +9,15 @@ import {Link} from "react-router-dom";
 import { Context } from './../../Context';
 
 
-
+	
 function Header(props) {
-	const [basketCount, setBasketCount] = useState(0)
-	const {basketProducts} = useContext(Context);
+	const {basketProducts, basketCount, setBasketCount} = useContext(Context);
 	const [burgerMenu, setBurgerMenu] = useState(false)
 
 	const basketCountHandler = () =>{
 		let count = 0
 		basketProducts.map(e=>{
-			count = count + e.count
+			count = count + e.quantity
 		})
 		setBasketCount(count)
 	}

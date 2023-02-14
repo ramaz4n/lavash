@@ -9,10 +9,12 @@ function BasketItem(props) {
 	const [price, setPrice] = useState(props.price);
 	const [modal, setModal] = useState(false);
 	const [additions, setAdditions] = useState([]);
-	const {basketProducts, setBasketProducts} = useContext(Context)
+	const {basketProducts, setBasketProducts, basketCount, setBasketCount} = useContext(Context)
+
+
 
 	const deteteBasketItem = (e) => {
-		const newProducts = basketProducts.filter(elem => elem.id !== props.id)
+		const newProducts = basketProducts.filter(elem => elem.orderId !== props.orderId)
 		setBasketProducts(newProducts)
 		window.location.reload();
 	}
@@ -30,14 +32,52 @@ function BasketItem(props) {
 		setModal(!modal)
 	}
 
+	const sendToLocalStorage = () =>{
+		localStorage.setItem('basketProducts', JSON.stringify(basketProducts))
+	}
+
 	const countUpHandler = () =>{
+		let itemPrice = price / count
 		setCount(count + 1)
+		let bProducts = basketProducts
+		bProducts.map(e=>{
+			if(e.id == props.id){
+				e.quantity = e.quantity + 1
+				e.price = price + itemPrice
+				setPrice(price + itemPrice)
+			}
+		})
+		setBasketProducts(bProducts)
+		sendToLocalStorage()
+		props.setTotalBasketPrice(props.totalBasketPrice + itemPrice)
+		basketCountHandler()
 	}
 	const countDownHandler = () =>{
-		if(count > 0){
-			setCount(count - 1);
+		if(count > 1){
+			let itemPrice = price / count
+			setCount(count - 1)
+			let bProducts = basketProducts
+			bProducts.map(e=>{
+				if(e.id == props.id){
+					e.quantity = e.quantity - 1
+					e.price = price - itemPrice
+					setPrice(price - itemPrice)
+				}
+				setBasketProducts(bProducts)
+				sendToLocalStorage()
+				props.setTotalBasketPrice(props.totalBasketPrice - itemPrice)
+				basketCountHandler()
+			})
 		}
 	}
+	const basketCountHandler = () =>{
+		let count = 0
+		basketProducts.map(e=>{
+			count = count + e.quantity
+		})
+		setBasketCount(count)
+	}
+
 	useEffect(()=>{
 		additionsHandler()
 	},[])
@@ -74,7 +114,7 @@ function BasketItem(props) {
 
 			<BasketModal
 				id={props.id}
-				productId = {props.productId}
+				orderId = {props.orderId}
 				onClick={modalHandler}
 				modal={modal}
 				count={count}

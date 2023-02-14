@@ -16,9 +16,11 @@ import PayStatus from './pages/PayStatus/PayStatus';
 
 
 function App() {
-
+	const [basketCount, setBasketCount] = useState(0)
 	const [products, setProducts] = useState([])
 	const [basketProducts, setBasketProducts] = useState(JSON.parse(localStorage.getItem('basketProducts'))? JSON.parse(localStorage.getItem('basketProducts')):[])
+
+
 
 	const requestOptions = {
 		method: 'GET',
@@ -34,13 +36,15 @@ function App() {
 	}
 	const sendToLocalStorage = () =>{
 		localStorage.setItem('basketProducts', JSON.stringify(basketProducts))
-		console.log(localStorage.getItem('basketProducts'))
 	}
+
+
+
 
 	useEffect(() => {
 		getProducts()
-		console.log(products)
 	}, []);
+
 	useEffect(() => {
 		sendToLocalStorage()
 	}, [basketProducts]);
@@ -51,7 +55,9 @@ function App() {
 			products,
 			setProducts,
 			basketProducts,
-			setBasketProducts
+			setBasketProducts,
+			basketCount,
+			setBasketCount
 		}
 	}
 	
