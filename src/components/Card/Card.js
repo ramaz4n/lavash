@@ -38,6 +38,7 @@ function Card(props) {
 						id={props.id}
 						onClick={closeModal}
 						modal={modal}
+						price={props.price}
 					/>
 			
 		</div>

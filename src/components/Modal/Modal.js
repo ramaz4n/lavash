@@ -6,10 +6,10 @@ import { Context } from '../../Context';
 function Modal(props) {
 	const {setBasketProducts} = useContext(Context)
 	const [product, setProduct] = useState();
-	const [totalPrice, setTotalPrice] = useState(0);
+	const [totalPrice, setTotalPrice] = useState(props.price);
 	const [options, setOptions] = useState([]);
 	const [additions, setAdditions] = useState([]);
-	const [count, setCount] = useState(0);
+	const [count, setCount] = useState(1);
 
 
 
@@ -25,6 +25,7 @@ function Modal(props) {
 			setProduct(result)
 		})
 		.catch(error => console.log('error', error));
+
 	}
 
 

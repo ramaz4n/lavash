@@ -3,6 +3,8 @@ import styles from './BasketModal.module.scss'
 import MoreItem from '../MoreItem/MoreItem';
 import { Context } from '../../Context';
 
+
+
 function BasketModal(props) {
 	const {basketProducts, setBasketProducts} = useContext(Context)
 	const [product, setProduct] = useState();
@@ -70,8 +72,6 @@ function BasketModal(props) {
 		window.location.reload();
 
 	}
-
-
 
 	const totalPriceHandler = () => {
 		let optionsPrice = 0;
