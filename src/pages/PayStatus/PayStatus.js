@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './PayStatus.module.scss'
-import {Link} from "react-router-dom";
+import {Link} from "react-router-dom"
 
 
 function PayStatus(props) {

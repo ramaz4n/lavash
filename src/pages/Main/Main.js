@@ -1,11 +1,10 @@
 import React, { useContext} from 'react';
-import styles from './Main.module.scss'
-import Card from '../../components/Card/Card';
-import burger from '../../images/burger.png'
+import Card from '../../components/Card/Card'
 import pomidor from '../../images/pomidor.png'
 import ogurec from '../../images/ogurec.png'
-import Menu from '../../components/Menu/Menu';
-import { Context } from '../../Context';
+import Menu from '../../components/Menu/Menu'
+import { Context } from '../../Context'
+import styles from './Main.module.scss'
 
 function Main(props) {
 	const {products} = useContext(Context)

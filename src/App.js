@@ -1,8 +1,8 @@
-import styles from './App.module.scss';
+import { useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import Container from './components/Container/Container';
-import { Routes, Route } from "react-router-dom";
 import Main from './pages/Main/Main';
 import Contacts from './pages/Contacts/Contacts';
 import Basket from './pages/Basket/Basket';
@@ -11,8 +11,8 @@ import Auth from './pages/Auth/Auth';
 import Registration from './pages/Registration/Registration';
 import Account from './pages/Account/Account';
 import {Context} from './Context'
-import { useEffect, useState } from 'react';
 import PayStatus from './pages/PayStatus/PayStatus';
+import styles from './App.module.scss';
 
 
 function App() {

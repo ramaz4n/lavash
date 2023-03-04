@@ -58,7 +58,7 @@ function BasketModal(props) {
 					"name":	         product.name,
 					"price":	         totalPrice,
 					"img":         	product.photo,
-					"quantity":          count,
+					"quantity":       count,
 					"options":        options,
 					"additions":      additions
 				}
@@ -70,7 +70,6 @@ function BasketModal(props) {
 			props.onClick()
 		}
 		window.location.reload();
-
 	}
 
 	const totalPriceHandler = () => {
@@ -98,7 +97,6 @@ function BasketModal(props) {
 
 	
 	const optionsHandler = (e) => {
-		console.log(e)
 		let opt = options
 		if(opt.length == 0){
 			 opt.push({
@@ -133,7 +131,6 @@ function BasketModal(props) {
 		}
 		setOptions(opt)
 		totalPriceHandler()
-		console.log(options)
 	}
 
 	const additionsHandler = (e)=>{

@@ -9,26 +9,12 @@
 	align-items: center;
 	padding: 10px;
 	img{
-		margin-bottom: -10px;
-	}
-	div{
-		width: 88px;
-		height: 20px;
-		background-color: #FFFFFF;
-		border-radius: 20px;
-		font-family: 'Montserrat';
-		font-style: normal;
-		font-weight: 500;
-		font-size: 16px;
-		line-height: 20px;
-		margin-top: 8px;
-		text-align: center;
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		column-gap: 10px;
+		margin-top: 5px;
+		width: 120px;
+		height: 65px;
 	}
 	span{
+		margin-top: 3px;
 		font-family: 'Montserrat';
 		font-style: normal;
 		font-weight: 400;
@@ -36,11 +22,28 @@
 		line-height: 17px;
 	}
 }
-div>.addPrice{
+.countItem{
+	width: 88px;
+	height: 20px;
+	background-color: #FFFFFF;
+	border-radius: 20px;
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	margin-top: 5px;
+	text-align: center;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	column-gap: 10px;
+}
+.addPrice{
 	width: 65px;
 	height: 20px;
 	position: absolute;
-	top: -10px;
+	top: -5px;
 	right: 10px;
 	background-color: #fff;
 	color: #000;
@@ -48,6 +51,9 @@ div>.addPrice{
 	font-weight: 600;
 	border-radius: 0 0 10px 10px; 
 	padding-top: 4px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
 .countDown,
 .countUp{
@@ -67,8 +73,8 @@ div>.addPrice{
 		width: 160px;
 		height: 115px;
 		img{
-			width: 100px;
-			height: 62px;
+			max-width: 100px;
+			max-height: 50px;
 		}
 		
 	}
@@ -79,8 +85,8 @@ div>.addPrice{
 		width: 135px;
 		height: 132px;
 		img{
-			width: 105px;
-			height: 75px;
+			max-width: 105px;
+			max-height: 75px;
 		}
 		
 	}
@@ -92,8 +98,8 @@ div>.addPrice{
 		width: 104px;
 		height: 102px;
 		img{
-			width: 81px;
-			height: 58px;
+			max-width: 75px;
+			max-height: 47px;
 		}
 		span{
 			font-weight: 400;

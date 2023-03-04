@@ -40,9 +40,9 @@ function MoreItem(props) {
 	return (
 		<div className={styles.moreItem}>
 			<div  className={styles.addPrice}>+{props.price}&#8381;</div>
-			<img src={props.moreImg} alt="img" />
+			<img className={styles.moreItem__img} src={props.moreImg} alt="img" />
 			<span>{props.moreTitle}</span>
-			<div>
+			<div className={styles.countItem}>
 				<span  onClick={countDownHandler} className={styles.countDown}>-</span>
 				<span>{count}</span>
 				<span  onClick={countUpHandler} className={styles.countUp}>+</span>

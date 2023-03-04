@@ -108,7 +108,7 @@ function Modal(props) {
 		}
 		setOptions(opt)
 		totalPriceHandler()
-		console.log(options)
+		console.log(product)
 	}
 
 	const additionsHandler = (e)=>{
@@ -245,7 +245,7 @@ function Modal(props) {
 										<MoreItem
 											id = {e.id}
 											price={e.price}
-											moreImg={e.photo_id}
+											moreImg={e.photo}
 											moreTitle={e.name}
 											getAdditions={additionsHandler}
 										/>
