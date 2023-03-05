@@ -30,6 +30,15 @@ function App() {
 		await fetch("https://lavash.endlessmind.space/api/products", requestOptions)
 		.then(response => response.json())
 		.then(result => {
+			console.log(result)
+			//let arr=[]
+			//for(let i = 1; i < result.length; i++){
+			//	result.map(e=>{
+			//		if(e.categoty == i){
+			//			arr.push(e)
+			//		}
+			//	})
+			//}
 			setProducts(result)
 		})
 		.catch(error => console.log('error', error));

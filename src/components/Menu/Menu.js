@@ -30,6 +30,7 @@ function Menu(props) {
 			await fetch(`https://lavash.endlessmind.space/api/products?category=${e.target.id}`, requestOptions)
 			.then(response => response.json())
 			.then(result => {
+				console.log(result)
 				setProducts(result)
 			})
 			.catch(error => console.log('error', error));

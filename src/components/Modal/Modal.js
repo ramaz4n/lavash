@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
-import styles from './Modal.module.scss'
 import MoreItem from './../MoreItem/MoreItem';
 import { Context } from '../../Context';
+import styles from './Modal.module.scss'
 
 function Modal(props) {
 	const {setBasketProducts} = useContext(Context)
@@ -22,7 +22,9 @@ function Modal(props) {
 		await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
 		.then(response => response.json())
 		.then(result => {
+			console.log(props.id)
 			setProduct(result)
+			console.log(product)
 		})
 		.catch(error => console.log('error', error));
 

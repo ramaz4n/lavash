@@ -136,17 +136,18 @@ function Basket(props) {
 			
 			let requestOptions = {
 				method: 'POST',
-				body: raw,
+				body: JSON.stringify(raw),
 				redirect: 'follow'
 			};
 			async function sendOrder(){
 				await fetch(`https://lavash.endlessmind.space/api/order`, requestOptions)
 				.then(response => response.json())
 				.then(result => {
-					console.log(result)
+					console.log(result) 
 				})
 				.catch(error => console.log('error', error));
 			}
+			console.log(raw)
 			sendOrder()
 			console.log(basketProducts)
 		}else{
