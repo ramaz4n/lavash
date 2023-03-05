@@ -147,9 +147,7 @@ function Basket(props) {
 				})
 				.catch(error => console.log('error', error));
 			}
-			console.log(raw)
 			sendOrder()
-			console.log(basketProducts)
 		}else{
 			alert("Корзина пуста")
 		}
@@ -303,7 +301,7 @@ function Basket(props) {
 					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{totalBasketPrice + deliveryPrice}&#8381;</span>
 				</div>
 				
-				<button onClick={payHandler}>Оплатить</button>
+				<button onClick={payHandler}>Оформить заказ</button>
 			</div>
 		</div>
 	);

@@ -6,7 +6,7 @@ import { Context } from '../../Context';
 
 function Menu(props) {
 	const [menuItems, setMenuItems] = useState([])
-	const {setProducts} = useContext(Context);
+	const {products, setProducts} = useContext(Context);
 
 
 	const requestOptions = {
@@ -24,7 +24,6 @@ function Menu(props) {
 				elem.active = true;
 			}
 		})
-
 
 		async function getCategories (){
 			await fetch(`https://lavash.endlessmind.space/api/products?category=${e.target.id}`, requestOptions)
