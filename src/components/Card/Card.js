@@ -1,41 +1,20 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState} from 'react';
 import Modal from '../Modal/Modal';
 import styles from './Card.module.scss'
 import { Context } from '../../Context';
 
 function Card(props) {
-	const {basketProducts, setBasketProducts} = useContext(Context)
-	const [product, setProduct] = useState()
 	const [modal, setModal] = useState(false);
 
 
-
-	const requestOptions = {
-		method: 'GET',
-		redirect: 'follow'
-	};
-	async function getProduct (){
-		await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
-		.then(response => response.json())
-		.then(result => {
-			setProduct(result)
-		})
-		.catch(error => console.log('error', error));
-	}
 	
 	const modalHandler = () =>{
 		setModal(!modal)
-		console.log(props.id)
 	}
 	const closeModal = () =>{
 		setModal(!modal)
 	}
-
-	useEffect(()=>{
-		getProduct()
-		console.log(props.id)
-	},[])
-		
+	
 
 	return (
 		<div  className={styles.card}>

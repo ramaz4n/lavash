@@ -31,7 +31,6 @@ function App() {
 		await fetch("https://lavash.endlessmind.space/api/products", requestOptions)
 		.then(response => response.json())
 		.then(result => {
-			console.log(result)
 			let arr=[]
 			for(let i = 1; i < 15; i++){
 				result.map(e=>{
@@ -40,7 +39,6 @@ function App() {
 					}
 				})
 			}
-			console.log(arr)
 			setProducts(arr)
 		})
 		.catch(error => console.log('error', error));

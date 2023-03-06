@@ -22,9 +22,7 @@ function Modal(props) {
 		await fetch(`https://lavash.endlessmind.space/api/products/${props.id}`, requestOptions)
 		.then(response => response.json())
 		.then(result => {
-			console.log(props.id)
 			setProduct(result)
-			console.log(product)
 		})
 		.catch(error => console.log('error', error));
 
@@ -163,7 +161,7 @@ function Modal(props) {
 
 	useEffect((e) =>{
 		getProduct()	
-	},[])
+	},[props.modal])
 
 
 
