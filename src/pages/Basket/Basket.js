@@ -1,16 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react';
-import styles from './Basket.module.scss'
 import home from '../../images/home.svg'
 import blPhone from '../../images/bl-phone.svg'
 import chesse from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
 import BasketItem from '../../components/BasketItem/BasketItem';
+import OrderModal from '../../components/OrderModal/OrderModal';
 import { Context } from '../../Context';
+import styles from './Basket.module.scss'
+
 
 
 function Basket(props) {
 	const [order, setOrder] = useState()
+	const [orderModal, setOrderModal] = useState(false);
+	const {orderStatus, setOrderStatus} = useContext(Context)
+
 	//Products for basket
 	const {basketProducts, setBasketProducts} = useContext(Context)
 	const [basProducts, setBasProducts] = useState(JSON.parse(localStorage.getItem('basketProducts')))
@@ -95,7 +100,6 @@ function Basket(props) {
 	}
 
 	const totalBasketPriceHandler = ()=>{
-		console.log(basProducts)
 		let price=0;
 		basProducts.map(e => {
 			price = price + e.price
@@ -144,10 +148,12 @@ function Basket(props) {
 				.then(response => response.json())
 				.then(result => {
 					console.log(result) 
+					setOrderStatus(result)
 				})
 				.catch(error => console.log('error', error));
 			}
 			sendOrder()
+			setOrderModal(true)
 		}else{
 			alert("Корзина пуста")
 		}
@@ -302,7 +308,13 @@ function Basket(props) {
 				</div>
 				
 				<button onClick={payHandler}>Оформить заказ</button>
+
 			</div>
+
+				<OrderModal
+					orderModal={orderModal}
+					onClick={()=> setOrderModal(!orderModal)}
+				/>
 		</div>
 	);
 }

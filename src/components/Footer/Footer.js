@@ -1,9 +1,10 @@
 import React from 'react';
 import Container from '../Container/Container';
 import Logo from '../Logo/Logo';
-import styles from './Footer.module.scss'
 import vk from '../../images/vk.svg'
 import phone from '../../images/phone.svg'
+import styles from './Footer.module.scss'  
+import { Link } from 'react-router-dom';
 
 
 function Footer(props) {
@@ -27,8 +28,8 @@ function Footer(props) {
 					</div>
 
 					<div className={styles.footer__info}>
-						<a href="#">О доставке</a>
-						<a href="#">Контакты</a>
+						<Link to="/delivery"> О доставке </Link>
+						<Link to="/contacts"> Контакты </Link>
 						<a href="#">Франшиза</a>
 					</div>
 

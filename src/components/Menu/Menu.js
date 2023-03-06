@@ -6,7 +6,7 @@ import { Context } from '../../Context';
 
 function Menu(props) {
 	const [menuItems, setMenuItems] = useState([])
-	const {products, setProducts} = useContext(Context);
+	const {setProducts} = useContext(Context);
 
 
 	const requestOptions = {

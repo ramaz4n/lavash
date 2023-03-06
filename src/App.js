@@ -16,6 +16,7 @@ import styles from './App.module.scss';
 
 
 function App() {
+	const [orderStatus, setOrderStatus] = useState(Boolean)
 	const [basketCount, setBasketCount] = useState(0)
 	const [products, setProducts] = useState([])
 	const [basketProducts, setBasketProducts] = useState(JSON.parse(localStorage.getItem('basketProducts'))? JSON.parse(localStorage.getItem('basketProducts')):[])
@@ -39,6 +40,7 @@ function App() {
 					}
 				})
 			}
+			console.log(arr)
 			setProducts(arr)
 		})
 		.catch(error => console.log('error', error));
@@ -66,7 +68,9 @@ function App() {
 			basketProducts,
 			setBasketProducts,
 			basketCount,
-			setBasketCount
+			setBasketCount,
+			orderStatus,
+			setOrderStatus
 		}
 	}
 	
