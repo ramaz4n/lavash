@@ -1,18 +1,30 @@
 import React, {useState} from 'react';
-import styles from './Auth.module.scss'
+import { Link } from 'react-router-dom';
+//IMAGES
 import user from '../../images/user.svg'
 import chese from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
-import { Link } from 'react-router-dom';
+import passImg from '../../images/pass.png'
+import unpassImg from '../../images/unpass.png'
+//STYLE
+import styles from './Auth.module.scss'
 
 
 function Auth(props) {
+	//AUTH
+	const [auth, setAuth] = useState()
+	//EMAIL
 	const [email, setEmail] = useState('')
-	const [phone, setPhone] = useState('')
 	const [correctEmail, setCorrectEmail] = useState(false)
+	//PHONE
+	const [phone, setPhone] = useState('')
 	const [correctPhone, setCorrectPhone] = useState(false)
+	//PQSSWORD
 	const [password, setPassword] = useState('')
+	const [correctPass, setCorrectPass] = useState(false)
+	const [passVisible, setPassVisible] = useState(false)
+	const [passType, setPassType] = useState('password')
 
 	const phoneHandler =(e) =>{
 		setPhone(e.target.value)
@@ -37,16 +49,57 @@ function Auth(props) {
 			setCorrectEmail(true)
 		}
 	}
-	const changePass= (e)=>{
-		setPassword(e.target.value)
-  	}
-	const authHandler= (e)=>{
-		if(correctEmail && correctPhone){
 
+	const passHandler= (e)=>{
+		setPassword(e.target.value)
+		const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/;
+		if(!re.test(String(e.target.value))){
+			e.target.style="border: 1px solid #c43939;"
+			setCorrectPass(false)
 		}else{
-			alert("Введите корректные данные")
+			e.target.style="border: 1px solid #B9B9B9;"
+			setCorrectPass(true)
+		}
+
+  	}
+	const passVisibleHandler = ()=>{
+		setPassVisible(!passVisible)
+		if(!passVisible){
+			setPassType("text")
+		}else{
+			setPassType("password")
+		}
+	}
+
+	const authHandler= (e)=>{
+		if(!correctPass){
+			return alert("Введите корректный пароль")
+		}
+		if(correctEmail){
+			setAuth({
+				"phone": phone,
+				"password": password,
+			})
+			//createUser()
+		}else{
+			return alert("Введите корректный email")
 		}
   	}
+
+	  const requestOptions = {
+		method: 'POST',
+		body: auth,
+		redirect: 'follow'
+	 };
+	
+	async function createUser(){
+		fetch("https://lavash.endlessmind.space/api/login", requestOptions)
+			.then(response => response.text())
+			.then(result => {
+				console.log(result)
+			})
+			.catch(error => console.log('error', error));
+	}
 
 
 	return (
@@ -61,7 +114,15 @@ function Auth(props) {
 				</div>
 				<input onChange={emailHandler} className={styles.auth__revEmail} placeholder="E-mail" type="text" />
 				<input onChange={phoneHandler} className={styles.auth__revPhone} placeholder="Номер телефона" type="text" />
-				<input onChange={changePass} className={styles.auth__revPass} placeholder="Пароль" type="text" />
+				<div className={styles.passVisible}>
+					<input onChange={passHandler} className={styles.auth__revPass} placeholder="Пароль" type={passType} />
+					{
+						passVisible?
+							<img onClick={passVisibleHandler} className={styles.passVisible__img} src={unpassImg} alt="" />
+						:
+						<img onClick={passVisibleHandler} className={styles.passVisible__img} src={passImg} alt="" />
+					}
+				</div>
 				<a href="#">Восстановить пароль</a>
 				<div class={styles.auth__btnWrap}>
 					<button onClick={authHandler} class={styles.auth__btnEnter}>Войти</button>

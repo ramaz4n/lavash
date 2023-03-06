@@ -1,17 +1,21 @@
 import React, {useContext, useEffect, useState} from 'react';
+import { Context } from '../../Context';
+//COMPONENTS
+import BasketItem from '../../components/BasketItem/BasketItem';
+import OrderModal from '../../components/OrderModal/OrderModal';
+//IMAGES
 import home from '../../images/home.svg'
 import blPhone from '../../images/bl-phone.svg'
 import chesse from '../../images/chesse.png'
 import salat from '../../images/salat.png'
 import pomidor from '../../images/pomidor.png'
-import BasketItem from '../../components/BasketItem/BasketItem';
-import OrderModal from '../../components/OrderModal/OrderModal';
-import { Context } from '../../Context';
+//STYLE
 import styles from './Basket.module.scss'
 
 
 
 function Basket(props) {
+	//ORDER
 	const [order, setOrder] = useState()
 	const [orderModal, setOrderModal] = useState(false);
 	const {orderStatus, setOrderStatus} = useContext(Context)
@@ -45,9 +49,7 @@ function Basket(props) {
 	const [correctEmail, setCorrectEmail] = useState(false)
 
 
-	const url = "https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address";
 	const token = "2e4126073de848027d6fdc2f788080f639af4047";
-
 	const options = {
 		method: "POST",
 		mode: "cors",
@@ -60,9 +62,11 @@ function Basket(props) {
 	}
 
 	async function getAddres(){
-		await fetch(url, options)
-		.then(response => response.text())
-		.then(result => console.log(result))
+		await fetch("https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/address", options)
+		.then(response => response.json())
+		.then(result => {
+			console.log(result)
+		})
 		.catch(error => console.log("error", error));
 	}
 
@@ -108,7 +112,7 @@ function Basket(props) {
 	}
 	
 	
-	const payHandler=()=>{
+	const createOrder=()=>{
 		if(conditionsChecked === false){
 			return alert("Необходимо согласие с Условиями использования, Правилами обработки персональных данных. Согласитесь с данным пунктом внизу страницы")
 		}
@@ -307,7 +311,7 @@ function Basket(props) {
 					<span>Сумма на оплату:</span><span className={styles.basket__totalPrice}>{totalBasketPrice + deliveryPrice}&#8381;</span>
 				</div>
 				
-				<button onClick={payHandler}>Оформить заказ</button>
+				<button onClick={createOrder}>Оформить заказ</button>
 
 			</div>
 
