@@ -36,7 +36,7 @@ function Modal(props) {
 					<div onClick={props.onClick} className={styles.cardModal__close}>&#10006;</div>
 					<h3 className={styles.status__success}>Заказ успешно оформлен!</h3>
 					<p className={styles.orderStatus} href="">Статус заказа: </p>	
-					<p className={styles.orderText}>Не закрывайте пожалуйста даную страницу</p>
+					<p className={styles.orderText}>Не закрывайте пожалуйста данную страницу</p>
 				</div>
 			</div>
 		:
