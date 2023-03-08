@@ -80,19 +80,19 @@ function Auth(props) {
 				"phone": phone,
 				"password": password,
 			})
-			//createUser()
+			authorization()
 		}else{
 			return alert("Введите корректный email")
 		}
   	}
 
-	  const requestOptions = {
+	const requestOptions = {
 		method: 'POST',
 		body: auth,
 		redirect: 'follow'
-	 };
+	};
 	
-	async function createUser(){
+	async function authorization(){
 		fetch("https://lavash.endlessmind.space/api/login", requestOptions)
 			.then(response => response.text())
 			.then(result => {

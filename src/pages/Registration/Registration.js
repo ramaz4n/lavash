@@ -102,12 +102,12 @@ function Registration(props) {
 		}
 		if(correctEmail){
 			setRegistration({
-				"name": "Булат",
+				"name": "Рамазан",
 				"phone": phone,
 				"password": password,
 				"password_confirmation": password2
 			})
-			//createUser()
+			createUser()
 
 		}else{
 			return alert("Введите корректные данные")
@@ -125,6 +125,7 @@ function Registration(props) {
 		fetch("https://lavash.endlessmind.space/api/register", requestOptions)
 			.then(response => response.text())
 			.then(result => {
+				console.log(registration)
 				console.log(result)
 			})
 			.catch(error => console.log('error', error));
@@ -149,7 +150,12 @@ function Registration(props) {
 					correctPassword? null :<p className={styles.passInfo} >Пароль должен содержать цифру, латинскую букву и длина не менее 6 символов</p>
 				}
 				<div className={styles.passVisible}>
-					<input onChange={passwordHandler} className={styles.auth__revPass} placeholder="Пароль" type={passType} />
+					<input 
+						onChange={passwordHandler}
+						className={styles.auth__revPass}
+						placeholder="Пароль" 
+						type={passType} 	
+					/>
 					{
 						passVisible?
 							<img onClick={passVisibleHandler} className={styles.passVisible__img} src={unpassImg} alt="" />
@@ -158,7 +164,12 @@ function Registration(props) {
 					}
 				</div>
 				<div className={styles.passVisible}>
-					<input onChange={passwordHandler2} className={styles.auth__revPass2} placeholder="Подтвердите пароль" type={passType2} />
+					<input 
+						onChange={passwordHandler2} 
+						className={styles.auth__revPass2} 
+						placeholder="Подтвердите пароль" 
+						type={passType2}
+					/>
 					{
 						passVisible2?
 							<img onClick={passVisibleHandler2} className={styles.passVisible__img} src={unpassImg} alt="" />

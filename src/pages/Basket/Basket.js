@@ -246,20 +246,7 @@ function Basket(props) {
 											})
 											:
 											null
-											
 										}
-										{/*<AddressHelper
-											text={"czcxczxczxcz"}
-											onClick={addressHelperHandler}
-										/>
-										<AddressHelper
-											text={"czcxczxczxcz"}
-											onClick={addressHelperHandler}
-										/>
-										<AddressHelper
-											text={"czcxczxczxcz"}
-											onClick={addressHelperHandler}
-										/>*/}
 									</div>
 							</div>
 						</div>
