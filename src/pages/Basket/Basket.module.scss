@@ -127,7 +127,24 @@
 		line-height: 30px;
 	}
 }
-
+.inputHomeWrap{
+	position: relative;
+}
+.inputHomeAddresses{
+	position: absolute;
+	top: 52px;
+	left: 20px;
+	border: 1px solid #B9B9B9;
+	border-radius: 7px;
+	background-color: white;
+	width: 534px; 
+	padding: 10px 0;
+	display: flex;
+	flex-direction: column;
+}
+.inputHomeAddresses__none{
+	display: none;
+}
 .inputHome{
 	padding: 15px 17px;
 	border: 1px solid #B9B9B9;
@@ -137,7 +154,7 @@
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 20px;
-	color: #383838;
+	color:#383838; 
 	height: 50px;
 	width: 534px;
 	margin-left: 20px;

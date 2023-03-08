@@ -3,6 +3,7 @@ import { Context } from '../../Context';
 //COMPONENTS
 import BasketItem from '../../components/BasketItem/BasketItem';
 import OrderModal from '../../components/OrderModal/OrderModal';
+import AddressHelper from '../../components/AddressHelper/AddressHelper';
 //IMAGES
 import home from '../../images/home.svg'
 import blPhone from '../../images/bl-phone.svg'
@@ -48,6 +49,9 @@ function Basket(props) {
 	const [email, setEmail] = useState('')
 	const [correctEmail, setCorrectEmail] = useState(false)
 
+	const[inputHomeAddresses, setInputHomeAddresses] = useState(false)
+	const[helpAddresses, setHelpAddresses] = useState()
+
 
 	const token = "2e4126073de848027d6fdc2f788080f639af4047";
 	const options = {
@@ -66,6 +70,7 @@ function Basket(props) {
 		.then(response => response.json())
 		.then(result => {
 			console.log(result)
+			setHelpAddresses(result)
 		})
 		.catch(error => console.log("error", error));
 	}
@@ -73,6 +78,11 @@ function Basket(props) {
 	const streetAndHomeHandler =(e) =>{
 		setStreetAndHome(e.target.value)
 		getAddres()
+		if(e.target.value && helpAddresses.suggestions.length != 0){
+			setInputHomeAddresses(true)
+		}else{
+			setInputHomeAddresses(false)
+		}
 	}
 
 	const emailHandler =(e) =>{
@@ -213,12 +223,45 @@ function Basket(props) {
 					<div className={styles.basket__itemBody}>
 						<div className={styles.basket__itemBodyElem}>
 							<img className={styles.homeIcon} src={home} alt="icon" />
-							<input 
-								className={styles.inputHome} 
-								type="text" 
-								placeholder='Введите улицу и дом'
-								onChange={streetAndHomeHandler}
-							/>
+							<div className={styles.inputHomeWrap}>
+								<input 
+									className={styles.inputHome} 
+									type="text" 
+									placeholder='Введите улицу и дом'
+									onChange={streetAndHomeHandler}
+								/>
+
+									
+									<div className={inputHomeAddresses? styles.inputHomeAddresses : styles.inputHomeAddresses__none}>
+										{
+											helpAddresses?
+											helpAddresses.suggestions.map((e)=>{
+												<AddressHelper
+													text={e.value}
+													onClick={()=>{
+														setStreetAndHome(e.value)
+														setInputHomeAddresses(false)
+													}}
+												/>
+											})
+											:
+											null
+											
+										}
+										{/*<AddressHelper
+											text={"czcxczxczxcz"}
+											onClick={addressHelperHandler}
+										/>
+										<AddressHelper
+											text={"czcxczxczxcz"}
+											onClick={addressHelperHandler}
+										/>
+										<AddressHelper
+											text={"czcxczxczxcz"}
+											onClick={addressHelperHandler}
+										/>*/}
+									</div>
+							</div>
 						</div>
 						<div className={styles.basket__itemBodyElem}>
 							<input 

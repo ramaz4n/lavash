@@ -20,7 +20,7 @@ function Auth(props) {
 	//PHONE
 	const [phone, setPhone] = useState('')
 	const [correctPhone, setCorrectPhone] = useState(false)
-	//PQSSWORD
+	//PASSWORD
 	const [password, setPassword] = useState('')
 	const [correctPass, setCorrectPass] = useState(false)
 	const [passVisible, setPassVisible] = useState(false)
@@ -52,7 +52,7 @@ function Auth(props) {
 
 	const passHandler= (e)=>{
 		setPassword(e.target.value)
-		const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/;
+		const re = /^(?=.*[a-z])(?=.*[0-9]).{6,}/i;
 		if(!re.test(String(e.target.value))){
 			e.target.style="border: 1px solid #c43939;"
 			setCorrectPass(false)

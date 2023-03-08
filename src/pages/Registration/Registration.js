@@ -59,9 +59,9 @@ function Registration(props) {
 
 	const passwordHandler =(e) =>{
 		setPassword(e.target.value)
-		const re = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{6,}/;
+		const re = /^(?=.*[a-z])(?=.*[0-9]).{6,}/i;
 		if(!re.test(String(e.target.value))){
-			e.target.style="border: 1px solid #c43939;"
+			e.target.style="border: 1px solid c;"
 			setCorrectPassword(false)
 		}else{
 			e.target.style="border: 1px solid #B9B9B9;"
@@ -145,6 +145,9 @@ function Registration(props) {
 				</div>
 				<input onChange={emailHandler} className={styles.auth__revEmail} placeholder="E-mail" type="text" />
 				<input onChange={phoneHandler} className={styles.auth__revPhone} placeholder="Номер телефона" type="text" />
+				{
+					correctPassword? null :<p className={styles.passInfo} >Пароль должен содержать цифру, латинскую букву и длина не менее 6 символов</p>
+				}
 				<div className={styles.passVisible}>
 					<input onChange={passwordHandler} className={styles.auth__revPass} placeholder="Пароль" type={passType} />
 					{
