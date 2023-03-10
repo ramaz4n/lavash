@@ -127,6 +127,28 @@
 		line-height: 30px;
 	}
 }
+.promocode__title{
+	font-family: 'Montserrat';
+	font-style: normal;
+	font-weight: 600;
+	font-size: 25px;
+	line-height: 30px;
+}
+.promocode__btn{
+	width: 308px;
+	height: 35px;
+	background-color: #A20B02;
+	border: none;
+	border-radius: 31px;
+	transition: all 0.2s;
+	color: #fff;
+	font-weight: 600;
+	margin-top: 5px;
+	cursor: pointer;
+}
+.promocode-btn:hover{
+	background-color:	#5A0500;
+}
 .inputHomeWrap{
 	position: relative;
 }

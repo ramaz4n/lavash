@@ -110,14 +110,18 @@ function Registration(props) {
 			createUser()
 
 		}else{
-			return alert("Введите корректные данные")
+			return alert("Введите корректные данные в поле email и телефон")
 		}
 		
   	}
 
 	const requestOptions = {
 		method: 'POST',
-		body: registration,
+		headers: {
+			'Accept': 'application/json',
+			'Content-Type': 'application/json'
+		 },
+		body: JSON.stringify(registration),
 		redirect: 'follow'
 	 };
 	

@@ -42,6 +42,10 @@ function Basket(props) {
 	//Comment state
 	const [comment, setComment] = useState('')
 
+	//Promocode states
+	const [promoCode, setPromoCode] = useState('')
+
+
 	//Contact states
 	const [phone, setPhone] = useState('')
 	const [correctPhone, setCorrectPhone] = useState(false)
@@ -173,6 +177,9 @@ function Basket(props) {
 		}
 	}
 
+	const promocodeHandler=()=>{
+
+	}
 
 
 
@@ -214,6 +221,20 @@ function Basket(props) {
 
 					</div>
 				</div> 
+				<div className={styles.basket__itemBody}>
+					<div className={styles.basket__itemTitle}>
+						<p className={styles.promocode__title}>Промокод</p>
+					</div>
+					<div className={styles.basket__itemBodyElem}>
+						<input 
+							className={styles.inputKom} 
+							type="text" 
+							placeholder='Введите промокод'
+							onChange={(e)=>setPromoCode(e.target.value)}
+						/>
+					</div>
+					<button className={styles.promocode__btn} onClick={promocodeHandler}>Применить</button>
+				</div>
 
 				<div className={styles.basket__item}>
 					<div className={styles.basket__itemTitle}>
@@ -286,6 +307,7 @@ function Basket(props) {
 						</div>
 					</div>
 				</div>
+
 
 				<div className={styles.basket__item}>
 					<div className={styles.basket__itemTitle}>
